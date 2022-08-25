@@ -7,11 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class LandingComponent implements OnInit {
-  focus: any;
-  focus1: any;
-
-  constructor() { }
-
-  ngOnInit() {}
-
+    focus: any;
+    focus1: any;
+  
+    constructor() { }
+  
+    ngOnInit() {}
 }

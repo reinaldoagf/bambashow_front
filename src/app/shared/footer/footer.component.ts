@@ -10,11 +10,10 @@ export class FooterComponent implements OnInit {
     test : Date = new Date();
 
     constructor(private router: Router ) {}
-
+    get getPath(){
+      return this.router?.url ? this.router.url : null;
+    }
     ngOnInit() {
 
-    }
-    getPath(){
-      return this.router.url;
     }
 }

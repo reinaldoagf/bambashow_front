@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home.component';
+import { LandingComponent } from './landing.component';
 
 import { SectionsModule } from '../sections/sections.module';
 
@@ -17,8 +17,8 @@ import { SectionsModule } from '../sections/sections.module';
         RouterModule,
         SectionsModule, NgbModule
     ],
-    declarations: [ HomeComponent ],
-    exports:[ HomeComponent ],
+    declarations: [ LandingComponent ],
+    exports:[ LandingComponent ],
     providers: []
 })
-export class HomeModule { }
+export class LandingModule { }
