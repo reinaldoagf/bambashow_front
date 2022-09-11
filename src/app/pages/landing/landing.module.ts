@@ -7,7 +7,8 @@ import { RouterModule } from '@angular/router';
 
 import { LandingComponent } from './landing.component';
 
-import { SectionsModule } from '../sections/sections.module';
+import { SectionsModule } from '../../sections/sections.module';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
     imports: [
@@ -15,7 +16,9 @@ import { SectionsModule } from '../sections/sections.module';
         BrowserModule,
         FormsModule,
         RouterModule,
-        SectionsModule, NgbModule
+        SectionsModule,
+        ComponentsModule,
+        NgbModule
     ],
     declarations: [ LandingComponent ],
     exports:[ LandingComponent ],

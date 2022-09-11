@@ -1,21 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { FooterComponent } from './shared/footer/footer.component';
 
-import { LandingModule } from './landing/landing.module';
+import { LandingModule } from './pages/landing/landing.module';
+import { SignupModule } from './pages/signup/signup.module';
+import { LoginModule } from './pages/login/login.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +21,9 @@ import { LandingModule } from './landing/landing.module';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    LandingModule
+    LandingModule,
+    SignupModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

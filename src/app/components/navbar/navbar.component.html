@@ -64,11 +64,19 @@
           </a>
         </li>
         <li class="nav-item d-none d-lg-block ml-lg-4">
-          <a href="https://www.creative-tim.com/product/argon-design-system-angular?ref=adsa-navbar" target="_blank" class="btn btn-neutral btn-icon">
+          <a [routerLink]="['/login']" class="btn btn-neutral btn-icon">
             <span class="btn-inner--icon">
               <i class="fa fa-cloud-download mr-2"></i>
             </span>
             <span class="nav-link-inner--text">Iniciar sesión</span>
+          </a>
+        </li>
+        <li class="nav-item d-none d-lg-block ml-lg-4">
+          <a [routerLink]="['/signup']" class="btn btn-neutral btn-icon">
+            <span class="btn-inner--icon">
+              <i class="fa fa-cloud-download mr-2"></i>
+            </span>
+            <span class="nav-link-inner--text">Registrarme</span>
           </a>
         </li>
       </ul>
