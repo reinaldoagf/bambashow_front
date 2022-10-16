@@ -32,6 +32,8 @@
     "jw-bootstrap-switch-ng2": "2.0.5",
     "moment": "^2.29.1",
     "ng2-nouislider": "1.8.3",
+    "ngx-spinner": "^13.1.1",
+    "ngx-toastr": "^14.3.0",
     "nouislider": "14.6.3",
     "path": "^0.12.7",
     "rxjs": "^7.5.5",

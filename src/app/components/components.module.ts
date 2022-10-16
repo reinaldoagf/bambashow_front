@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
 import { RouterModule } from '@angular/router';
@@ -14,7 +14,7 @@ import { FooterComponent } from "./footer/footer.component";
   ],
   imports: [
     CommonModule,
-    BrowserModule,
+    // BrowserModule,
     NgbModule,
     FormsModule,
     RouterModule

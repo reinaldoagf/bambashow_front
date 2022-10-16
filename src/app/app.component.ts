@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     private _router: Subscription;
 
     constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
-    @HostListener('window:scroll', ['$event'])
+    /* @HostListener('window:scroll', ['$event'])
     hasScrolled() {
 
         var st = window.pageYOffset;
@@ -50,9 +50,9 @@ export class AppComponent implements OnInit {
         }
 
         lastScrollTop = st;
-    };
+    }; */
     ngOnInit() {
-      var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
+      /* var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
       this._router = this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
           if (window.outerWidth > 991) {
               window.document.children[0].scrollTop = 0;
@@ -70,6 +70,6 @@ export class AppComponent implements OnInit {
               }
           });
       });
-      this.hasScrolled();
+      this.hasScrolled(); */
     }
 }
