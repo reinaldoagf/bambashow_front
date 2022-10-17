@@ -1,0 +1,89 @@
+<nav class="navbar navbar-top navbar-expand navbar-dark bg-danger border-bottom" id="navbar-main">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class=" header" *ngIf="breadcrumbItems.length>0">
+          <div class=" container-fluid">
+            <div class="header-body">
+  
+              <div class=" row ">
+                <div class=" col media align-items-center">
+                  <h6 class=" h2 d-inline-block mb-0 text-white">{{breadcrumbItems[breadcrumbItems.length-1]}}</h6>
+  
+                  <nav aria-label="breadcrumb" class=" d-flex media align-items-center ml-md-4">
+                    <ol class=" breadcrumb breadcrumb-links">
+                      <li class=" breadcrumb-item">
+                        <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                      </li>
+                      <ng-container *ngFor="let breadcrumbItem of breadcrumbItems;index as i;">
+                        <li class=" breadcrumb-item" *ngIf="breadcrumbItems.length-1 != i">
+                          <a href="javascript:void(0)"> {{breadcrumbItem}} </a>
+                        </li>
+                        <li aria-current="page" class=" breadcrumb-item active"  *ngIf="breadcrumbItems.length-1 == i">
+                          {{breadcrumbItem}}
+                        </li>
+                      </ng-container>                    
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navbar links -->
+        <ul class="navbar-nav align-items-center ml-md-auto">
+          <li class="nav-item d-xl-none">
+            <!-- Sidenav toggler -->
+            <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main"
+              (click)="openSidebar()">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item d-sm-none">
+            <a class="nav-link" (click)="openSearch()">
+              <i class="ni ni-zoom-split-in"></i>
+            </a>
+          </li>
+        </ul>
+        <!-- User -->
+        <ul class="navbar-nav align-items-center ml-auto ml-md-0" >
+          <li class="nav-item dropdown" dropdown placement="bottom-right">
+            <a class="nav-link pr-0 dropdown-toggle" role="button" dropdownToggle>
+              <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle">
+                  <!-- brokenPicture [urlCustom]="'https://img2.pngio.com/default-png-9-png-image-default-png-478_477.png'" -->
+                  <img alt="Image placeholder" class="w-100 h-100" src="assets/img/default.jpg" />
+                </span>
+                <div class="media-body ml-2 d-none d-lg-block" *ngIf="user">
+                  <span class="mb-0 text-sm  font-weight-bold">{{user.email}}</span>
+                </div>
+              </div>
+            </a>
+            <!--  -->
+            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" *dropdownMenu style="
+        ">
+              <div class=" dropdown-header noti-title">
+                <h6 class="text-overflow m-0">Bienvenido</h6>
+              </div>
+              <a
+                style="color: black;"
+                routerLinkActive="active"
+                [routerLink]="['/admin/profile']"
+                class="dropdown-item"
+              >
+                <i class="ni ni-single-02"></i> <span>My profile</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="javascript:void()" class="dropdown-item" [routerLink]="['/auth/login']" style="color: black;">
+                <i class="ni ni-user-run"></i> <span>Cerrar sesión</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div *ngIf="sidenavOpen === true" class="backdrop d-xl-none" (click)="toggleSidenav()"></div>

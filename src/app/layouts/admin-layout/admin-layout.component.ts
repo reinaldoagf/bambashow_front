@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, HostListener } from "@angular/core";
 
 @Component({
   selector: "app-admin-layout",
@@ -6,7 +6,22 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./admin-layout.component.scss"]
 })
 export class AdminLayoutComponent implements OnInit {
+  isMobileResolution: boolean;
+
   constructor() {
+    if (window.innerWidth < 1200) {
+      this.isMobileResolution = true;
+    } else {
+      this.isMobileResolution = false;
+    }
+  }
+  @HostListener("window:resize", ["$event"])
+  isMobile(event) {
+    if (window.innerWidth < 1200) {
+      this.isMobileResolution = true;
+    } else {
+      this.isMobileResolution = false;
+    }
   }
   ngOnInit() {}
 }
