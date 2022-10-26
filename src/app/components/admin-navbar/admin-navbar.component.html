@@ -12,7 +12,7 @@
                   <nav aria-label="breadcrumb" class=" d-flex media align-items-center ml-md-4">
                     <ol class=" breadcrumb breadcrumb-links">
                       <li class=" breadcrumb-item">
-                        <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                        <a href="javascript:void(0)"> <i class="fa fa-home"> </i> </a>
                       </li>
                       <ng-container *ngFor="let breadcrumbItem of breadcrumbItems;index as i;">
                         <li class=" breadcrumb-item" *ngIf="breadcrumbItems.length-1 != i">
@@ -50,8 +50,8 @@
         </ul>
         <!-- User -->
         <ul class="navbar-nav align-items-center ml-auto ml-md-0" >
-          <li class="nav-item dropdown" dropdown placement="bottom-right">
-            <a class="nav-link pr-0 dropdown-toggle" role="button" dropdownToggle>
+          <li class="nav-item dropdown" ngbDropdown placement="bottom-right">
+            <a class="nav-link pr-0 dropdown-toggle" role="button" id="dropdownBasic1" ngbDropdownToggle>
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
                   <!-- brokenPicture [urlCustom]="'https://img2.pngio.com/default-png-9-png-image-default-png-478_477.png'" -->
@@ -63,8 +63,7 @@
               </div>
             </a>
             <!--  -->
-            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" *dropdownMenu style="
-        ">
+            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
               <div class=" dropdown-header noti-title">
                 <h6 class="text-overflow m-0">Bienvenido</h6>
               </div>
@@ -77,7 +76,7 @@
                 <i class="ni ni-single-02"></i> <span>My profile</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a href="javascript:void()" class="dropdown-item" [routerLink]="['/auth/login']" style="color: black;">
+              <a href="javascript:void()" class="dropdown-item" [routerLink]="['/main/login']" style="color: black;">
                 <i class="ni ni-user-run"></i> <span>Cerrar sesión</span>
               </a>
             </div>

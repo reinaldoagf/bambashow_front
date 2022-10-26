@@ -37,5 +37,17 @@
 
   &.active {
     color: $breadcrumb-active-color;
+    font-weight: bold;
+  }
+}
+
+.breadcrumb-links{
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  .breadcrumb-item{
+    a{
+      color: #fff;
+    }
   }
 }

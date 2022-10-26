@@ -68,6 +68,8 @@
   .nav-link {
     padding-right: 0;
     padding-left: 0;
+    display: flex;
+    align-items: center;
   }
 
   .dropdown-menu {
@@ -146,6 +148,7 @@
       @include media-breakpoint-down($breakpoint) {
         > .container,
         > .container-fluid {
+          height: 100%;
           padding-right: 0;
           padding-left: 0;
         }
@@ -179,6 +182,8 @@
 
           // Changes flex-bases to auto because of an IE10 bug
           flex-basis: auto;
+          
+          height: 100%;
         }
 
         .navbar-toggler {
@@ -296,4 +301,8 @@
       }
     }
   }
+}
+
+.navbar-top {  
+  height: 70px;
 }

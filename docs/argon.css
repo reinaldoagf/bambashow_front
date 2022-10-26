@@ -13484,7 +13484,7 @@ a.btn-icon-only {
     width: 100%;
     padding-right: 0!important;
     padding-left: 0!important;
-    background-color: transparent
+    background-color: transparent;
 }
 
 @media (min-width:768px) {
