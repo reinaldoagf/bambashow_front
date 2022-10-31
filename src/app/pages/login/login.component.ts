@@ -10,6 +10,7 @@ import { NotificationService } from "src/app/core/services/notification.service"
   templateUrl: "login.component.html",
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   user: User = new User();
   focus: boolean = false;
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('access_token', response.data.token);
           localStorage.setItem('user', JSON.stringify(response.data.user));
           this.notificationService.showSuccess('Operación realiza exitosamente', response.data.message)
-          this.router.navigate(['/admin/']);
+          this.router.navigate(['/admin/dashboard']);
         }
       })
       .catch(err => {

@@ -333,6 +333,12 @@
 
 .sidenav-header {
   height: 78px;
+  .navbar-brand{
+    &-img{
+      width: 180px;
+      object-fit: cover;
+    }
+  }
 }
 
 // Sidenav states

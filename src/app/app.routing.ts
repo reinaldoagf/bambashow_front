@@ -10,6 +10,7 @@ import { MainLayoutComponent } from "./layouts/main-layout/main-layout.component
 import { LoginComponent } from "./pages/login/login.component";
 import { SignupComponent } from "./pages/signup/signup.component";
 import { LandingComponent } from './pages/landing/landing.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 /* 
 import { LoginComponent } from './pages/login/login.component';
@@ -24,7 +25,11 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminLayoutComponent,
-    children: []
+    children: [{
+      path: "dashboard",
+      component: DashboardComponent,
+    },
+  ]
   },
   {
     path: "main",

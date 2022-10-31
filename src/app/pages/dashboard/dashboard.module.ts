@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 
-import { LandingComponent } from './landing.component';
+import { DashboardComponent } from './dashboard.component';
 
 import { SectionsModule } from '../../sections/sections.module';
 import { ComponentsModule } from '../../components/components.module';
@@ -18,8 +18,8 @@ import { ComponentsModule } from '../../components/components.module';
         ComponentsModule,
         NgbModule
     ],
-    declarations: [ LandingComponent ],
-    exports:[ LandingComponent ],
+    declarations: [ DashboardComponent ],
+    exports:[ DashboardComponent ],
     providers: []
 })
 export class LandingModule { }
