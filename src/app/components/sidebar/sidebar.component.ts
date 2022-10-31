@@ -32,41 +32,33 @@ export interface ChildrenItems2 {
 //Menu Items
 export const ROUTES: RouteInfo[] = [
   {
-    path: "/admin/home",
-    title: "Home",
+    path: "/admin/dashboard",
+    title: "Dashboard",
     type: "link",
     icontype: "ni-shop text-primary",
   },{
-    path: "/admin/store-manager",
-    title: "Gestor de tienda",
+    path: "/admin/user-manager",
+    title: "Gestor de usuarios",
     type: "sub",
     icontype: "ni-collection text-orange",
     collapse: "examples",
     isCollapsed: true,
     children: [
-      {path: "dashboard-store", title: "Dashboard tienda", type: "link"},
-      {path: "stores", title: "Tiendas", type: "link"},
-      {path: "custom-fields", title: "Campos personalizados", type: "link"},
-      {path: "notification", title: "Notificación", type: "link"},
-      {path: "commercial-boss", title: "Jefe comercial", type: "link"},
-      {path: "cluster", title: "Cluster", type: "link"},
-      {path: "operator", title: "Centro comercial", type: "link"},
-      {path: "inventory", title: "Inventario", type: "link"},
-      // {path: "budget-expenses", title: "Presupuesto gastos", type: "link"},
-      {
+      {path: "users", title: "Usuarios", type: "link"},
+      {path: "roles", title: "Roles", type: "link"},
+      /* {
         path: "budget-expenses", 
         title: "Contabilidad",//"Presupuesto gastos", 
         type: "sub",
         collapse: "examples",
         isCollapsed: true,
         children: [
-          {path: "invoice-income", title: "Ingreso factura", type: "link"},
-          {path: "expense-account", title: "Cuenta gasto", type: "link"},          
+          {path: "invoice-income", title: "Ingreso factura", type: "link"},       
         ]
-      }
+      } */
     ]
   },
-  {
+  /* {
     path: "/admin/evaluation",
     title: "Evaluación",
     type: "sub",
@@ -110,7 +102,7 @@ export const ROUTES: RouteInfo[] = [
       { path: "emails", title: "Emails", type: "link" },
       { path: "sap-connection", title: "Conexión SAP", type: "link" },
     ]
-  }, /* {
+  },  *//* {
     path: "/admin/custom-fields",
     title: "Campos personalizados",
     type: "sub",

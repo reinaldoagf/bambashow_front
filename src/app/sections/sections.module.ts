@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { NouisliderModule } from 'ng2-nouislider';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
+
+import { SharedModule } from "../shared/shared.module";
 
 import { SectionsComponent } from './sections.component';
 import { ButtonsSectionComponent } from './buttons-section/buttons-section.component';
@@ -39,11 +41,12 @@ import { NgbdModalContent } from './modal/modal.component';
   entryComponents: [NgbdModalContent],
   imports: [
     CommonModule,
+    SharedModule,
     FormsModule,
-    NgbModule,
+    // NgbModule,
     RouterModule,
     NouisliderModule,
-    JwBootstrapSwitchNg2Module
+    // JwBootstrapSwitchNg2Module
   ],
   exports:[ SectionsComponent ]
 })

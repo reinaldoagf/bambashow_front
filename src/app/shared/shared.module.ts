@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { FormsModule } from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //pipes
 import { GenericFilterPipe } from 'src/app/shared/pipes/generic-filter.pipe';
 //directives
@@ -18,6 +19,7 @@ import { MultiCheckboxDirective } from './directives/multi-checkbox.directive';
     CommonModule,
     FormsModule,
     NgxSpinnerModule,
+    NgbModule
   ],
   exports: [
     GenericFilterPipe,
@@ -26,6 +28,7 @@ import { MultiCheckboxDirective } from './directives/multi-checkbox.directive';
     CommonModule,  
     FormsModule,
     NgxSpinnerModule,
+    NgbModule
   ],
   providers: [
     GenericFilterPipe,

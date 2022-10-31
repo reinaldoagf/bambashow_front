@@ -34,7 +34,7 @@
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Collapse header -->
           <ul class="navbar-nav">
-            <li *ngFor="let menuitem of menuItems" class="nav-item">
+            <li *ngFor="let menuitem of menuItems" class="nav-item m-0">
               <!--If is a single link-->
               <a
                 routerLinkActive="active"
@@ -64,7 +64,7 @@
                 id="{{ menuitem.collapse }}"
                 class="collapse"
                 *ngIf="menuitem.type === 'sub'"
-                [collapse]="menuitem.isCollapsed"
+                [(ngbCollapse)]="menuitem.isCollapsed"
                 [isAnimated]="true"
               >
                 <ul class="nav nav-sm flex-column">
@@ -97,7 +97,7 @@
                       id="{{ childitems.collapse }}"
                       class="collapse"
                       *ngIf="childitems.type === 'sub'"
-                      [collapse]="childitems.isCollapsed"
+                      [(ngbCollapse)]="childitems.isCollapsed"
                       [isAnimated]="true"
                     >
                       <ul class="nav">

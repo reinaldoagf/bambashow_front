@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 
@@ -10,7 +10,7 @@ import { MainLayoutComponent } from "./layouts/main-layout/main-layout.component
 import { LoginComponent } from "./pages/login/login.component";
 import { SignupComponent } from "./pages/signup/signup.component";
 import { LandingComponent } from './pages/landing/landing.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+// import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 /* 
 import { LoginComponent } from './pages/login/login.component';
@@ -27,7 +27,10 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     children: [{
       path: "dashboard",
-      component: DashboardComponent,
+      loadChildren: () => import('./pages/dashboard/dashboard.module').then(x => x.DashboardModule),
+    }, {
+      path: "user-manager",
+      loadChildren: () => import('./pages/user-manager/user-manager.module').then(x => x.UserManagerModule),
     },
   ]
   },
@@ -58,7 +61,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
+    // BrowserModule,
     RouterModule.forRoot(routes,{
       useHash: true
     })

@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
           localStorage.setItem('access_token', response.data.token);
           localStorage.setItem('expires_in', `${response.data.exp}`);
           localStorage.setItem('user', JSON.stringify(response.data));
-          this.router.navigate(['/admin/']);
+          this.router.navigate(['/admin/dashboard']);
         }
       })
       .catch(err => {

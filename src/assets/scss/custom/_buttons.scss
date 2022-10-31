@@ -65,7 +65,9 @@
 .btn-neutral {
     color: theme-color("primary");
 }
-
+.btn-primary {
+    color: red;
+}
 // Icons
 
 .btn svg:not(:first-child),

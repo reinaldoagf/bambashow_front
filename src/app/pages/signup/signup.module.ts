@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 
 import { SignupComponent } from './signup.component';
 
+import { SharedModule } from "../../shared/shared.module";
 import { SectionsModule } from '../../sections/sections.module';
 import { ComponentsModule } from '../../components/components.module';
-import { SharedModule } from "../../shared/shared.module";
 import { CoreModule } from '../../core/core.module';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { CoreModule } from '../../core/core.module';
         ComponentsModule,
         SharedModule,
         CoreModule, 
-        NgbModule
+        // NgbModule
     ],
     declarations: [ SignupComponent ],
     exports:[ SignupComponent ],
