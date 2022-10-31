@@ -9,8 +9,9 @@ import { MainLayoutComponent } from "./layouts/main-layout/main-layout.component
 
 import { LoginComponent } from "./pages/login/login.component";
 import { SignupComponent } from "./pages/signup/signup.component";
+import { LandingComponent } from './pages/landing/landing.component';
 
-/* import { LandingComponent } from './pages/landing/landing.component';
+/* 
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
  */
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: "signup",
         component: SignupComponent,
+      },
+      {
+        path: "landing",
+        component: LandingComponent,
       },
     ]
   },
