@@ -39,10 +39,12 @@
                       href="javascript:void(0)" (click)="edit(item,form)">
                       <i class=" fas fa-edit"> </i>
                     </a>
-                    <a class="table-action table-action-delete" tooltip="Eliminar usuario" placement="top"
-                      href="javascript:void(0)" (click)="delete(item._id)">
-                      <i class=" fas fa-trash"> </i>
-                    </a>
+                    <ng-container *ngIf="!item.root">
+                      <a class="table-action table-action-delete" tooltip="Eliminar usuario" placement="top"
+                        href="javascript:void(0)" (click)="confirmDeleted(item)">
+                        <i class=" fas fa-trash"> </i>
+                      </a>
+                    </ng-container>
                   </td>
                 </tr>
               </tbody>

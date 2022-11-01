@@ -131,6 +131,7 @@ export class SidebarComponent implements OnInit {
   /*obtiene usuario en sesión desde localStorage*/
   getUser(){
     const user=JSON.parse(localStorage.getItem("user"));
+    console.log(user)
     if(user){
       /* this.menuItems = ROUTES.filter(menuItem =>{
         if(user.rol && user.rol.menu_elements_rol.find(e => e.menu_element.path == menuItem.path)){

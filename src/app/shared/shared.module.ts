@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //pipes
@@ -18,7 +19,8 @@ import { MultiCheckboxDirective } from './directives/multi-checkbox.directive';
   imports: [
     CommonModule,
     FormsModule,
-    NgxSpinnerModule,
+    NgxSpinnerModule,    
+    ToastrModule.forRoot({}),
     NgbModule
   ],
   exports: [
@@ -27,7 +29,8 @@ import { MultiCheckboxDirective } from './directives/multi-checkbox.directive';
     MultiCheckboxDirective,  
     CommonModule,  
     FormsModule,
-    NgxSpinnerModule,
+    NgxSpinnerModule,    
+    ToastrModule,
     NgbModule
   ],
   providers: [

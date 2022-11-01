@@ -16,10 +16,10 @@ export class SignupComponent implements OnInit {
   focus;
   focus1;
   focus2;
-  constructor(public spinner: NgxSpinnerService,
-    public router: Router,
-    public restService: RestService,
-    public notificationService: NotificationService,) { }
+  constructor(private spinner: NgxSpinnerService,
+    private router: Router,
+    private restService: RestService,
+    private notificationService: NotificationService,) { }
 
   ngOnInit() { }
   async signUp() {

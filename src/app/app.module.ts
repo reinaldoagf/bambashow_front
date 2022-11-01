@@ -4,8 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NgxSpinnerModule } from 'ngx-spinner';
-import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from "ngx-spinner";
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -24,7 +23,6 @@ import { ComponentsModule } from './components/components.module';
     RouterModule,
     NgxSpinnerModule,
     AppRoutingModule,
-    ToastrModule.forRoot({}),
     ComponentsModule
   ],
   providers: [],
