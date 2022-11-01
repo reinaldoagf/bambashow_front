@@ -437,6 +437,8 @@ $table-dark-hover-bg:         rgba($white, .075);
 $table-dark-border-color:     lighten($gray-900, 7.5%);
 $table-dark-color:            $body-bg !default;
 
+$table-action-color: $gray-500 !default;
+$table-dark-action-color: lighten(theme-color("default"), 35%) !default;
 
 // Buttons + Forms
 

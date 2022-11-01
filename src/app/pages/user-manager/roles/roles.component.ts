@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AdminNavbarService} from '../../../core/services/admin-navbar.service';
 
 @Component({
   selector: 'app-roles',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RolesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public adminNavbarService: AdminNavbarService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
+    this.adminNavbarService.changePage({
+      path:'/admin/user-manager/users',
+      breadcumbs: ['Gestor de usuario', 'Roles']
+    })
   }
 
 }

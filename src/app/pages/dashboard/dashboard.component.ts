@@ -8,6 +8,7 @@ import {
   chartExample1,
   chartExample2
 } from '../../variables/charts';
+import {AdminNavbarService} from '../../core/services/admin-navbar.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -21,9 +22,13 @@ export class DashboardComponent implements OnInit {
   clicked: boolean = true;
   clicked1: boolean = false;
 
-  constructor() {}
+  constructor(public adminNavbarService: AdminNavbarService) {}
 
   ngOnInit() {
+    this.adminNavbarService.changePage({
+      path:'/admin/dashboard',
+      breadcumbs: ['Dashboard']
+    })
     this.datasets = [
       [0, 20, 10, 30, 15, 40, 20, 60, 60],
       [0, 20, 5, 25, 10, 30, 15, 40, 40]

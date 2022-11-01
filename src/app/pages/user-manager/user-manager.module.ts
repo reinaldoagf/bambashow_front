@@ -5,6 +5,7 @@ import { UserManagerRoutingModule } from './user-manager-routing.module';
 import { UsersComponent } from './users/users.component';
 import { RolesComponent } from './roles/roles.component';
 
+import { SharedModule } from "../../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { RolesComponent } from './roles/roles.component';
   ],
   imports: [
     CommonModule,
-    UserManagerRoutingModule
+    UserManagerRoutingModule,
+    SharedModule,
   ]
 })
 export class UserManagerModule { }

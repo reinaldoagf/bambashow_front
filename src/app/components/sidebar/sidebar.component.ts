@@ -138,7 +138,6 @@ export class SidebarComponent implements OnInit {
         }
       }); */
       this.menuItems = ROUTES;
-      console.log('menuItems:',this.menuItems)
       this.router.events.subscribe(event => {
         this.isCollapsed = true;
       });

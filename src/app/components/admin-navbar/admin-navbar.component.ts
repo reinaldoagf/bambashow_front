@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input } from "@angular/core";
+import { Component, OnInit, ElementRef } from "@angular/core";
 import { ROUTES } from "../sidebar/sidebar.component";
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 
@@ -6,15 +6,16 @@ import {
   Location,
 } from "@angular/common";
 
+import {AdminNavbarService} from '../../core/services/admin-navbar.service';
 import { User } from "src/app/core/models/user.model";
+
 @Component({
   selector: 'app-admin-navbar',
   templateUrl: './admin-navbar.component.html',
   styleUrls: ['./admin-navbar.component.css']
 })
 export class AdminNavbarComponent implements OnInit {
-  @Input() breadcrumbItems:string[];
-
+  public breadcrumbItems:string[] = [];
   public focus;
   public listTitles: any[];
   public location: Location;
@@ -24,7 +25,8 @@ export class AdminNavbarComponent implements OnInit {
   constructor(
     location: Location,
     private element: ElementRef,
-    private router: Router
+    private router: Router,    
+    private adminNavbarService: AdminNavbarService
   ) {
     this.location = location;
     this.router.events.subscribe((event: Event) => {
@@ -55,6 +57,9 @@ export class AdminNavbarComponent implements OnInit {
   ngOnInit() {
     this.listTitles = ROUTES.filter(listTitle => listTitle);
     this.getUser()
+    this.adminNavbarService.change.subscribe(result=>{
+      this.breadcrumbItems = result.breadcumbs ? result.breadcumbs : [];
+    });
   }
   /*obtiene usuario en sesión desde localStorage*/
   getUser(){
