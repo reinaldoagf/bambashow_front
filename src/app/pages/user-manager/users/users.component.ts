@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxSpinnerService } from "ngx-spinner";
+import { NgxSpinnerService } from 'ngx-spinner';
 import { User } from 'src/app/core/models/user.model';
 import { AdminNavbarService } from 'src/app/core/services/admin-navbar.service';
-import { NotificationService } from "src/app/core/services/notification.service";
+import { NotificationService } from 'src/app/core/services/notification.service';
 import { RestService } from 'src/app/core/services/rest.service';
 import Swal from 'sweetalert2';
 
@@ -24,8 +24,10 @@ export class UsersComponent implements OnInit {
   /*paginacion*/
   users: User[] = [];
   headerElements: any[] = [
-    'Nombre',
+    'foto',
+    'nombre',
     'email',
+    'dirección',
     'rol'
   ];
   searchTable: string = '';

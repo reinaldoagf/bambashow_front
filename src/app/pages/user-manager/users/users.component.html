@@ -1,68 +1,74 @@
 <div class=" container-fluid py-4">
-    <div class=" row">
-      <div class=" col">
-        <div class="card">
-          <div class="card-header border-0">
-            <div class="row align-items-center" style="margin-bottom: 10px;">
-              <div class="col">
-                <h3 class=" mb-0">Lista de usuarios</h3>
-              </div>
-              <div class="col text-right">
-                <!-- *ngIf="getPermission('dashboards/product-prices-list','register',null,null)" class="btn btn-sm btn-primary" (click)="navigateTo(['dashboards/product-price-list-form'])" -->
-                <!-- <button class="btn btn-sm btn-primary" (click)="open(form)">Crear nuevo</button> -->
-              </div>
+  <div class=" row">
+    <div class=" col">
+      <div class="card">
+        <div class="card-header border-0">
+          <div class="row align-items-center" style="margin-bottom: 10px;">
+            <div class="col">
+              <h3 class=" mb-0">Lista de usuarios</h3>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <input class="form-control" placeholder="Buscar usuario..." [(ngModel)]="searchTable">
-              </div>
+            <div class="col text-right">
+              <!-- *ngIf="getPermission('dashboards/product-prices-list','register',null,null)" class="btn btn-sm btn-primary" (click)="navigateTo(['dashboards/product-price-list-form'])" -->
+              <!-- <button class="btn btn-sm btn-primary" (click)="open(form)">Crear nuevo</button> -->
             </div>
           </div>
-          <div class=" table-responsive">
-            <table class=" table align-items-center table-flush">
-              <thead class=" thead-light">
-                <tr>
-                  <th class=" sort" data-sort="project" scope="col" *ngFor="let element of headerElements">
-                    {{element}}
-                  </th>
-  
-                  <th scope="col">Acciones</th>
-                </tr>
-              </thead>
-              <tbody class=" list">
-                <tr *ngFor="let item of ( paginateUsers  | genericFilter: searchTable ) ;index as i">
-                    <td class="budget">{{item.name}}</td>
-                    <td class="budget">{{item.email}}</td>
-                    <td class="budget">{{item.rol?.name ? item.rol.name : 'Sin rol'}}</td>
-                  <td class=" budget">
-                    <a class="table-action table-action-delete" tooltip="Editar usuario" placement="top"
-                      href="javascript:void(0)" (click)="edit(item,form)">
-                      <i class=" fas fa-edit"> </i>
+          <div class="row">
+            <div class="col-md-12">
+              <input class="form-control" placeholder="Buscar usuario..." [(ngModel)]="searchTable">
+            </div>
+          </div>
+        </div>
+        <div class=" table-responsive">
+          <table class=" table align-items-center table-flush">
+            <thead class=" thead-light">
+              <tr>
+                <th class="text-uppercase sort" data-sort="project" scope="col" *ngFor="let element of headerElements">
+                  {{element}}
+                </th>
+
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody class=" list">
+              <tr *ngFor="let item of ( paginateUsers  | genericFilter: searchTable ) ;index as i">
+                <td>
+                  <div class=" avatar-group">
+                    <a class=" avatar avatar-sm rounded-circle" ngbTooltip="Foto" placement="top"
+                      href="javascript:void(0)">
+                      <img brokenPicture
+                        [urlCustom]="'https://img2.pngio.com/default-png-9-png-image-default-png-478_477.png'"
+                        style="width: 100%;height: 100%;" alt="Foto" [src]="item.photo" />
                     </a>
-                    <ng-container *ngIf="!item.root">
-                      <a class="table-action table-action-delete" tooltip="Eliminar usuario" placement="top"
-                        href="javascript:void(0)" (click)="confirmDeleted(item)">
-                        <i class=" fas fa-trash"> </i>
-                      </a>
-                    </ng-container>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class=" card-footer border-0">
-            <div class="pagination-container">
-              <ngb-pagination 
-                [collectionSize]="users.length" 
-                #numPages 
-                [pageSize]="itemsPerPage" 
-                [(page)]="currentPage" 
-                (pageChange)="onPageChange(currentPage)" 
-                [disabled]="searchTable.length">
-              </ngb-pagination>
-            </div>
+                  </div>
+                </td>
+                <td class="budget">{{item.name}}</td>
+                <td class="budget">{{item.email}}</td>
+                <td class="budget">{{item.address}}</td>
+                <td class="budget">{{item.rol?.name ? item.rol.name : 'Sin rol'}}</td>
+                <td class=" budget">
+                  <a class="table-action table-action-delete" ngbTooltip="Detalles del usuario" placement="top"
+                    href="javascript:void(0)" [routerLink]="['/admin/user-manager/users/details',item.id]">
+                    <i class=" fas fa-eye"> </i>
+                  </a>
+                  <ng-container *ngIf="!item.root">
+                    <a class="table-action table-action-delete" ngbTooltip="Eliminar usuario" placement="top"
+                      href="javascript:void(0)" (click)="confirmDeleted(item)">
+                      <i class=" fas fa-trash"> </i>
+                    </a>
+                  </ng-container>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class=" card-footer border-0">
+          <div class="pagination-container">
+            <ngb-pagination [collectionSize]="users.length" #numPages [pageSize]="itemsPerPage" [(page)]="currentPage"
+              (pageChange)="onPageChange(currentPage)" [disabled]="searchTable.length">
+            </ngb-pagination>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

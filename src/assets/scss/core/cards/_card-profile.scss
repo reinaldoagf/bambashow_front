@@ -1,0 +1,53 @@
+//
+// Profile card
+//
+.card-profile{
+  .card-img-top{
+    height: 100%;
+    max-height: 350px;
+    object-fit: cover;
+  }
+  &-image {
+    position: relative;
+  
+    img {
+      max-width: 140px;
+      border-radius: $border-radius;
+      border: 3px solid $card-bg;
+      transform: translate(-50%, -50%) scale(1);
+      position: absolute;
+      left: 50%;
+      transition: $transition-base;
+  
+      &:hover {
+        transform: translate(-50%, -50%) scale(1.03);
+      }
+    }
+  }
+  &-stats {
+    padding: 1rem 0;
+  
+    > div {
+      text-align: center;
+      margin-right: 1rem;
+      padding: 0.875rem;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+  
+      .heading {
+        font-size: 1.1rem;
+        font-weight: bold;
+        display: block;
+      }
+      .description {
+        font-size: 0.875rem;
+        color: $gray-500;
+      }
+    }
+  }
+  &-actions {
+    padding: 0.875rem;
+  }
+}
