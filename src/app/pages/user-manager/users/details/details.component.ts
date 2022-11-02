@@ -30,7 +30,6 @@ export class DetailsComponent implements OnInit {
       breadcumbs: ['Gestor de usuario', 'Usuarios', 'Detalles']
     })
     this.activeRoute.params.subscribe(routeParams => {
-      console.log('routeParams.id:',routeParams.id)
       if(routeParams.id){
         this.user.id = routeParams.id
         this.getData()

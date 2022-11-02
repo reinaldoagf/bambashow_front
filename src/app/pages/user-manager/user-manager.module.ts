@@ -7,12 +7,13 @@ import { DetailsComponent as UsersDetailsComponent } from './users/details/detai
 import { RolesComponent } from './roles/roles.component';
 
 import { SharedModule } from "../../shared/shared.module";
+import { FormComponent } from './roles/form/form.component';
 
 @NgModule({
   declarations: [
     UsersComponent,
     UsersDetailsComponent, 
-    RolesComponent, 
+    RolesComponent, FormComponent, 
   ],
   imports: [
     CommonModule,
