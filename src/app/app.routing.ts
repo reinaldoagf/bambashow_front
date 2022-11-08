@@ -31,6 +31,9 @@ const routes: Routes = [
     }, {
       path: "user-manager",
       loadChildren: () => import('./pages/user-manager/user-manager.module').then(x => x.UserManagerModule),
+    }, {
+      path: "supplier-manager",
+      loadChildren: () => import('./pages/supplier-manager/supplier-manager.module').then(x => x.SupplierManagerModule),
     },
   ]
   },

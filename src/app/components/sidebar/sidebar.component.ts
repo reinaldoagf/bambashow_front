@@ -36,7 +36,7 @@ export const ROUTES: RouteInfo[] = [
     title: "Dashboard",
     type: "link",
     icontype: "ni-shop text-primary",
-  },{
+  }, {
     path: "/admin/user-manager",
     title: "Gestor de usuarios",
     type: "sub",
@@ -44,8 +44,8 @@ export const ROUTES: RouteInfo[] = [
     collapse: "examples",
     isCollapsed: true,
     children: [
-      {path: "users", title: "Usuarios", type: "link"},
-      {path: "roles", title: "Roles", type: "link"},
+      { path: "users", title: "Usuarios", type: "link" },
+      { path: "roles", title: "Roles", type: "link" },
       /* {
         path: "budget-expenses", 
         title: "Contabilidad",//"Presupuesto gastos", 
@@ -57,62 +57,17 @@ export const ROUTES: RouteInfo[] = [
         ]
       } */
     ]
-  },
-  /* {
-    path: "/admin/evaluation",
-    title: "Evaluación",
+  }, {
+    path: "/admin/supplier-manager",
+    title: "Gestor de proveedores",
     type: "sub",
-    icontype: "ni-ungroup text-orange",
+    icontype: "ni-collection text-orange",
     collapse: "examples",
     isCollapsed: true,
     children: [
-      { 
-        path: "store-evaluations", 
-        title: "Comercial", 
-        type: "link" 
-      },//Individual
-      // { path: "store-evaluations-operation", title: "Operación", type: "link" },
-      { 
-        path: "store-evaluations", 
-        title: "Operación", 
-        type: "sub",
-        collapse: "examples",
-        isCollapsed: true,
-        children: [
-          { path: "accounting", title: "Contabilidad", type: "link" },//Contabilidad
-          { path: "inventory", title: "Inventario", type: "link" },//Inventario
-          { path: "management", title: "Gestión", type: "link" },//Gestión
-          { path: "cd-management", title: "Gestión CD", type: "link" },//Gestión CD
-        ]
-      },
+      { path: "providers", title: "Proveedores", type: "link" },
     ]
-  },
-  {
-    path: "/admin/settings",
-    title: "Configuración",
-    type: "sub",
-    icontype: "ni-ui-04 text-info",
-    collapse: "components",
-    isCollapsed: true,
-    children: [
-      { path: "individual-module", title: "Módulo Comercial", type: "link" },
-      { path: "operational-modules", title: "Módulos Operación", type: "link" },
-      { path: "users", title: "Usuarios", type: "link" },
-      { path: "rols", title: "Roles", type: "link" },
-      { path: "emails", title: "Emails", type: "link" },
-      { path: "sap-connection", title: "Conexión SAP", type: "link" },
-    ]
-  },  *//* {
-    path: "/admin/custom-fields",
-    title: "Campos personalizados",
-    type: "sub",
-    icontype: "ni-settings-gear-65 text-info",
-    isCollapsed: true,
-    children: [
-      { path: "store-configuration", title: "Tiendas", type: "link" }, //(pim)
-    ]
-  } */
-];
+  }];
 
 @Component({
   selector: "app-sidebar",
@@ -123,16 +78,16 @@ export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public isCollapsed = true;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.getUser();
   }
   /*obtiene usuario en sesión desde localStorage*/
-  getUser(){
-    const user=JSON.parse(localStorage.getItem("user"));
+  getUser() {
+    const user = JSON.parse(localStorage.getItem("user"));
     console.log(user)
-    if(user){
+    if (user) {
       /* this.menuItems = ROUTES.filter(menuItem =>{
         if(user.rol && user.rol.menu_elements_rol.find(e => e.menu_element.path == menuItem.path)){
           return menuItem
