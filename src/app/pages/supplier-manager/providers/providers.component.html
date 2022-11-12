@@ -36,6 +36,11 @@
                                 <td class="budget">{{item.email}}</td>
                                 <td class="budget">{{item.phone_number}}</td>
                                 <td class=" budget">
+                                    <a class="table-action table-action-delete" ngbTooltip="Editar el proveedor"
+                                        placement="top" href="javascript:void(0)"
+                                        [routerLink]="['/admin/supplier-manager/providers/form',item.id]">
+                                        <i class=" fas fa-edit"> </i>
+                                    </a>
                                     <a class="table-action table-action-delete" ngbTooltip="Eliminar proveedor"
                                         placement="top" href="javascript:void(0)" (click)="confirmDeleted(item)">
                                         <i class=" fas fa-trash"> </i>
