@@ -128,4 +128,7 @@ export class AdminNavbarComponent implements OnInit {
   logout(){    
     this.router.navigate(['/main/login']);
   }
+  goBack() {
+    this.location.back();
+  }
 }

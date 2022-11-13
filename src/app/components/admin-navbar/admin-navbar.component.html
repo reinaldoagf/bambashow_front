@@ -7,6 +7,14 @@
   
               <div class=" row ">
                 <div class=" col media align-items-center">
+                  <a 
+                    href="javascript:void(0)" 
+                    (click)="goBack()"
+                    data-toggle="tooltip" 
+                    title="Back" 
+                    class="nav-link nav-link-icon text-white">
+                    <i class="fa fa-arrow-left"></i>
+                  </a>
                   <h6 class=" h2 d-inline-block mb-0 text-white">{{breadcrumbItems[breadcrumbItems.length-1]}}</h6>
   
                   <nav aria-label="breadcrumb" class=" d-flex media align-items-center ml-md-4">
