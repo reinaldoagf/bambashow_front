@@ -9,12 +9,14 @@ import { GenericFilterPipe } from 'src/app/shared/pipes/generic-filter.pipe';
 //directives
 import { BrokenPictureDirective } from './directives/broken-picture.directive';
 import { MultiCheckboxDirective } from './directives/multi-checkbox.directive';
+import { BadgeStatusDirective } from './directives/badge-status.directive';
 
 @NgModule({
   declarations: [ 
     GenericFilterPipe,
     BrokenPictureDirective,
-    MultiCheckboxDirective
+    MultiCheckboxDirective,
+    BadgeStatusDirective
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { MultiCheckboxDirective } from './directives/multi-checkbox.directive';
   exports: [
     GenericFilterPipe,
     BrokenPictureDirective,
-    MultiCheckboxDirective,  
+    MultiCheckboxDirective,
+    BadgeStatusDirective,
     CommonModule,  
     FormsModule,
     NgxSpinnerModule,    

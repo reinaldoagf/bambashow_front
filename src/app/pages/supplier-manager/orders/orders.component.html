@@ -33,7 +33,13 @@
                             <tr *ngFor="let item of ( paginateOrders  | genericFilter: searchTable ) ;index as i">
                                 <td class="budget">{{item.pdf}}</td>
                                 <td class="budget">{{item.message}}</td>
-                                <td class="budget">{{item.status}}</td>
+                                <td class="budget">
+                                    <span 
+                                        class="badge badge-pill text-uppercase"
+                                        badgeStatus [status]="item.status">
+                                        {{item.status}}
+                                    </span>
+                                </td>
                                 <td class="budget">{{item.provider?.name ? item.provider.name : 'Sin proveedor'}}</td>
                                 <td class="budget">{{item.provider?.phone_number ? item.provider.phone_number : 'Sin proveedor'}}</td>
                                 <td class="budget">{{item.provider?.email ? item.provider.email : 'Sin proveedor'}}</td>
