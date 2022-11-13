@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProvidersComponent } from './providers/providers.component';
 import { FormComponent as ProvidersFormComponent } from './providers/form/form.component';
 import { OrdersComponent as ProvidersOrdersComponent } from './orders/orders.component';
+import { FormComponent as ProvidersOrdersFormComponent } from './orders/form/form.component';
 
 const routes: Routes = [{
   path: "providers",
@@ -17,6 +18,9 @@ const routes: Routes = [{
 },{
   path: "orders",
   component: ProvidersOrdersComponent,
+},{
+  path: "orders/form",
+  component: ProvidersOrdersFormComponent,
 }];
 
 @NgModule({

@@ -46,13 +46,14 @@ export class FormComponent implements OnInit {
         this.restService.get(`/raw-material/get/${this.rawMaterial.id}`),
       ]);
       this.spinner.hide();
+      console.log(response1)
       this.rawMaterial = response1.data ? response1.data : this.rawMaterial;
     } catch (error) {
       this.spinner.hide();
       console.log(error);
     }
   }
-  async update() {
+  async save() {
     try {
       this.spinner.show();
       const response: any = this.restService.put(`/raw-material/update/${this.rawMaterial.id}`,this.rawMaterial);

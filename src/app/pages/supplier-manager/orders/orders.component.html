@@ -9,7 +9,13 @@
                         </div>
                         <div class="col text-right">
                             <!-- *ngIf="getPermission('dashboards/product-prices-list','register',null,null)" class="btn btn-sm btn-primary" (click)="navigateTo(['dashboards/product-price-list-form'])" -->
-                            <!-- <button class="btn btn-sm btn-primary" (click)="open(form)">Crear nuevo</button> -->
+                            <a 
+                                class="btn btn-sm btn-primary"
+                                placement="top" 
+                                href="javascript:void(0)"
+                                [routerLink]="['/admin/supplier-manager/orders/form']">
+                                Nuevo pedido <i class=" fas fa-plus"> </i>
+                            </a>
                         </div>
                     </div>
                     <div class="row">

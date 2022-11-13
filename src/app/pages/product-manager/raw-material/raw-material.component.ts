@@ -26,7 +26,6 @@ export class RawMaterialComponent implements OnInit {
   rawMaterials: RawMaterial[] = [];
   headerElements: any[] = [
     'nombre',
-    'cantidad',
   ];
   searchTable: string = '';
   constructor(

@@ -33,7 +33,6 @@
                         <tbody class=" list">
                             <tr *ngFor="let item of ( paginateRawMaterials  | genericFilter: searchTable ) ;index as i">
                                 <td class="budget">{{item.name}}</td>
-                                <td class="budget">{{item.quantity}}</td>
                                 <td class=" budget">
                                     <a class="table-action table-action-delete" ngbTooltip="Editar la materia prima"
                                         placement="top" href="javascript:void(0)"

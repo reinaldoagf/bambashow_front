@@ -52,7 +52,7 @@ export class FormComponent implements OnInit {
       console.log(error);
     }
   }
-  async update() {
+  async save() {
     try {
       this.spinner.show();
       const response: any = this.restService.put(`/providers/update/${this.provider.id}`,this.provider);

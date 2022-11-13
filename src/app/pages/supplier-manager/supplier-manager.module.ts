@@ -5,6 +5,7 @@ import { SupplierManagerRoutingModule } from './supplier-manager-routing.module'
 import { ProvidersComponent } from './providers/providers.component';
 import { FormComponent as ProvidersFormComponent } from './providers/form/form.component';
 import { OrdersComponent as ProvidersOrdersComponent } from './orders/orders.component';
+import { FormComponent as ProvidersOrdersFormComponent } from './orders/form/form.component';
 
 import { SharedModule } from "../../shared/shared.module";
 
@@ -12,7 +13,8 @@ import { SharedModule } from "../../shared/shared.module";
   declarations: [
     ProvidersComponent,
     ProvidersFormComponent,
-    ProvidersOrdersComponent
+    ProvidersOrdersComponent,
+    ProvidersOrdersFormComponent
   ],
   imports: [
     CommonModule,

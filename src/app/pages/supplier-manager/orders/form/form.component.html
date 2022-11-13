@@ -3,7 +3,7 @@
         <div class=" header-body">
             <div class=" row align-items-center py-4">
                 <div class=" col-lg-6 col-7">
-                    <h6 class=" h2 text-white d-inline-block mb-0">{{rawMaterial.id ? 'Actualizar materia prima' : 'Crear materia prima'}}</h6>
+                    <h6 class=" h2 text-white d-inline-block mb-0">{{order.id ? 'Actualizar pedido' : 'Crear pedido'}}</h6>
                 </div>
             </div>
         </div>
@@ -18,15 +18,16 @@
                 </div>
                 <div class=" card-body">
                     <div class=" form-group">
-                        <label class=" form-control-label" for="name">
-                            Nombre
+                        <label class=" form-control-label" for="message">
+                            Mensaje
                         </label>
-                        <input class=" form-control" id="name" placeholder="Nombre"
-                            type="text" [(ngModel)]="rawMaterial.name" />
+                        <textarea class=" form-control" id="message" placeholder="Mensaje"
+                            type="text" [(ngModel)]="order.message">
+                        </textarea>
                     </div>
                 </div>
                 <div class="card-footer justify-content-end">
-                    <button type="submit" class="btn btn-primary" (click)="save()"> {{rawMaterial.id ? 'Actualizar' : 'Crear'}} </button>
+                    <button type="submit" class="btn btn-primary" (click)="save()"> {{order.id ? 'Actualizar' : 'Crear'}} </button>
                 </div>
             </div>
         </div>
