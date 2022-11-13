@@ -12,16 +12,16 @@ import Swal from 'sweetalert2';
   styleUrls: ['./providers.component.css']
 })
 export class ProvidersComponent implements OnInit {
-/*paginacion*/
-currentPage = 1;
-page = 1;
-itemsPerPage = 7;
-pageSize: number;
-paginations: any = {
-  startItem: null,
-  endItem: null
-}
-/*paginacion*/
+  /*paginacion*/
+  currentPage = 1;
+  page = 1;
+  itemsPerPage = 7;
+  pageSize: number;
+  paginations: any = {
+    startItem: null,
+    endItem: null
+  }
+  /*paginacion*/
   providers: Provider[] = [];
   headerElements: any[] = [
     'nombre',

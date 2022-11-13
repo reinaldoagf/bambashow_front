@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ProvidersComponent } from './providers/providers.component';
 import { FormComponent as ProvidersFormComponent } from './providers/form/form.component';
+import { OrdersComponent as ProvidersOrdersComponent } from './orders/orders.component';
 
 const routes: Routes = [{
   path: "providers",
@@ -13,6 +14,9 @@ const routes: Routes = [{
 },{
   path: "providers/form/:id",
   component: ProvidersFormComponent,
+},{
+  path: "orders",
+  component: ProvidersOrdersComponent,
 }];
 
 @NgModule({
