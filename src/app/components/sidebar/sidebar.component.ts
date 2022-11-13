@@ -35,12 +35,12 @@ export const ROUTES: RouteInfo[] = [
     path: "/admin/dashboard",
     title: "Dashboard",
     type: "link",
-    icontype: "ni-shop text-primary",
+    icontype: "ni-chart-bar-32 text-primary",
   }, {
     path: "/admin/user-manager",
     title: "Gestor de usuarios",
     type: "sub",
-    icontype: "ni-collection text-orange",
+    icontype: "ni-circle-08 text-info",
     collapse: "examples",
     isCollapsed: true,
     children: [
@@ -61,12 +61,22 @@ export const ROUTES: RouteInfo[] = [
     path: "/admin/supplier-manager",
     title: "Gestor de proveedores",
     type: "sub",
-    icontype: "ni-collection text-orange",
+    icontype: "ni-collection text-success",
     collapse: "examples",
     isCollapsed: true,
     children: [
       { path: "providers", title: "Proveedores", type: "link" },
       { path: "orders", title: "Pedidos", type: "link" },
+    ]
+  }, {
+    path: "/admin/product-manager",
+    title: "Gestor de productos",
+    type: "sub",
+    icontype: "ni-money-coins text-danger",
+    collapse: "examples",
+    isCollapsed: true,
+    children: [
+      { path: "raw-material", title: "Materia prima", type: "link" },
     ]
   }];
 
@@ -87,7 +97,6 @@ export class SidebarComponent implements OnInit {
   /*obtiene usuario en sesión desde localStorage*/
   getUser() {
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user)
     if (user) {
       /* this.menuItems = ROUTES.filter(menuItem =>{
         if(user.rol && user.rol.menu_elements_rol.find(e => e.menu_element.path == menuItem.path)){

@@ -58,7 +58,6 @@ export class OrdersComponent implements OnInit {
       ]: any[] = await Promise.all([
         this.restService.get(`/providers/orders`),
       ]);
-      console.log(response1)
       this.spinner.hide();
       this.orders = response1.data ? response1.data : [];
 

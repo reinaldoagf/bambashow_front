@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
     this.restService.post(`/auth/login`,this.user)
       .then((response: any)=> {
         this.spinner.hide();
-        console.log("response:", response)
         if (response != undefined && response.data) {
           localStorage.setItem('access_token', response.data.token);
           localStorage.setItem('user', JSON.stringify(response.data.user));

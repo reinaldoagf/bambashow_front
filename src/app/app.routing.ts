@@ -34,6 +34,9 @@ const routes: Routes = [
     }, {
       path: "supplier-manager",
       loadChildren: () => import('./pages/supplier-manager/supplier-manager.module').then(x => x.SupplierManagerModule),
+    },{
+      path: "product-manager",
+      loadChildren: () => import('./pages/product-manager/product-manager.module').then(x => x.ProductManagerModule),
     },
   ]
   },

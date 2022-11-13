@@ -27,7 +27,6 @@ export class SignupComponent implements OnInit {
     this.restService.post(`/auth/signup`, this.user)
       .then((response: any) => {
         this.spinner.hide();
-        console.log('response:', response)
         if (response != undefined && response.data) {
           this.notificationService.showSuccess('Operación realiza exitosamente', 'Inicio de sesión exitoso')
           localStorage.setItem('access_token', response.data.token);

@@ -35,7 +35,6 @@ export class NavbarComponent implements OnInit {
     }
 
     isHome() {
-        console.log('isHome()')
         var titlee = this.location.prepareExternalUrl(this.location.path());
 
         if( titlee === '#/landing' ) {

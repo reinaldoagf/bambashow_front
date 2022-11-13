@@ -8,7 +8,6 @@ export class MultiCheckboxDirective implements OnInit {
     constructor(
         private elementRef: ElementRef,
         private renderer: Renderer2) {
-        console.log("MultiCheckboxDirective")
     }
     ngOnInit() { }
     @HostListener('click', ['$event']) onClick($event){
