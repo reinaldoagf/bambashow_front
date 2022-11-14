@@ -37,7 +37,12 @@
                         </thead>
                         <tbody class=" list">
                             <tr *ngFor="let item of ( paginateOrders  | genericFilter: searchTable ) ;index as i">
-                                <td class="budget">{{item.pdf}}</td>
+                                <td class="budget">
+                                    <a class="table-action table-action-delete" ngbTooltip="Ver solicitud"
+                                        placement="top" href="{{item.pdf}}" target="_blank">
+                                        <i class=" fas fa-file"> </i>
+                                    </a>                                    
+                                </td>
                                 <td class="budget">{{item.message}}</td>
                                 <td class="budget">
                                     <span 

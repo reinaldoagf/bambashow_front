@@ -26,6 +26,23 @@
                         </textarea>
                     </div>
                 </div>
+                <div class=" card-body">
+                    <div class=" form-group">
+                        <label class=" form-control-label" for="providers">
+                            Proveedores
+                        </label>
+                        <ng-multiselect-dropdown
+                            name="provider"
+                            [placeholder]="'Proveedores'"
+                            [data]="providers"
+                            [(ngModel)]="order.id_provider"
+                            [settings]="dropdownSettings"
+                            (onSelect)="onItemSelect($event)"
+                            [disabled]="false">
+                        </ng-multiselect-dropdown>
+                    </div>
+                </div>
+                
                 <div class="card-footer justify-content-end">
                     <button type="submit" class="btn btn-primary" (click)="save()"> {{order.id ? 'Actualizar' : 'Crear'}} </button>
                 </div>

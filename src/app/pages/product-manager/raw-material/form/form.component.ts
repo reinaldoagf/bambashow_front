@@ -46,7 +46,6 @@ export class FormComponent implements OnInit {
         this.restService.get(`/raw-material/get/${this.rawMaterial.id}`),
       ]);
       this.spinner.hide();
-      console.log(response1)
       this.rawMaterial = response1.data ? response1.data : this.rawMaterial;
     } catch (error) {
       this.spinner.hide();
