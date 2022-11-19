@@ -7,6 +7,7 @@ import { RestService } from 'src/app/core/services/rest.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { Provider } from 'src/app/core/models/provider.model';
 import { OrderSupplier } from 'src/app/core/models/order-supplier.model';
+import { RawMaterial } from 'src/app/core/models/raw-material.model';
 
 @Component({
   selector: 'app-form',
@@ -18,12 +19,20 @@ export class FormComponent implements OnInit {
 
   order: OrderSupplier = new OrderSupplier();
   providers: Provider[] = [];
-  dropdownSettings: any = {
+  rawMaterial: RawMaterial[] = []
+  providersDropdownSettings: any = {
     singleSelection: true,
     allowSearchFilter: true,
     closeDropDownOnSelection: true,
-    textField:'name',
-    idField:'id'
+    textField: 'name',
+    idField: 'id'
+  }
+  rawMaterialDropdownSettings: any = {
+    singleSelection: true,
+    allowSearchFilter: true,
+    closeDropDownOnSelection: true,
+    textField: 'name',
+    idField: 'id_raw_material'
   }
   constructor(
     private location: Location,
@@ -33,32 +42,46 @@ export class FormComponent implements OnInit {
     private restService: RestService,
     private adminNavbarService: AdminNavbarService,
     private notificationService: NotificationService) { }
-    get formData(){
-      return {
-        id: this.order.id,
-        message: this.order.message, 
-        pdf: this.order.pdf, 
-        status: this.order.status, 
-        id_provider: this.order.id_provider[0] ?this.order.id_provider[0].id : null
-      }
+  get formData() {
+    return {
+      id: this.order.id,
+      message: this.order.message,
+      pdf: this.order.pdf,
+      status: this.order.status,
+      id_provider: this.order.id_provider && this.order.id_provider[0] ? this.order.id_provider[0].id : null,
+      items: this.order.items
     }
+  }
+  get rawMaterialOptions() {
+      return this.rawMaterial.map(e => {
+        return {
+          ...e,
+          id_raw_material: e.id
+        }
+      })
+  }
   ngOnInit(): void {
     this.adminNavbarService.changePage({
-      path:'/admin/user-manager/providers/form/:id',
+      path: '/admin/user-manager/providers/form/:id',
       breadcumbs: ['Gestor de proveedores', 'Pedidos', 'Formulario']
     })
     this.getData()
+    console.log(this.rawMaterialOptions)
   }
   async getData() {
     try {
       this.spinner.show();
       const [
         response1,
+        response2,
       ]: any[] = await Promise.all([
         this.restService.get(`/providers`),
+        this.restService.get(`/raw-material`),
       ]);
       this.spinner.hide();
+      console.log(response2)
       this.providers = response1.data ? response1.data : [];
+      this.rawMaterial = response2.data ? response2.data : [];
     } catch (error) {
       this.spinner.hide();
       console.log(error);
@@ -67,6 +90,7 @@ export class FormComponent implements OnInit {
 
   async save() {
     console.log(this.formData)
+    console.log(this.order)
     try {
       if(this.order.id){
         this.spinner.show();
@@ -79,7 +103,6 @@ export class FormComponent implements OnInit {
         this.spinner.show();
         const response: any = this.restService.post(`/providers/orders/create`,this.formData);
         this.spinner.hide();
-        console.log('response:',response)
         this.order = response.data ? response.data : this.order;
         this.notificationService.showSuccess('Operación realiza exitosamente', response.message)
         this.location.back();
@@ -89,7 +112,20 @@ export class FormComponent implements OnInit {
       console.log(error);
     }
   }
-  onItemSelect($event){
-    console.log('$event:',$event)
+  onItemSelect($event) {
+    console.log('$event:', $event)
+  }
+  addItem() {
+    this.order.items = [...this.order.items,{
+      id_order_supplier: null,
+      id_raw_material: null,
+      quantity: null,
+      square_meter: null
+    }]
+    console.log(this.rawMaterialOptions)
+    console.log(this.rawMaterialDropdownSettings)
+  }
+  removeItem(item){
+    this.order.items = this.order.items.filter(e => this.order.items.indexOf(e) !== this.order.items.indexOf(item))
   }
 }
