@@ -1,4 +1,4 @@
-import { Provider } from "@angular/core";
+import { Provider } from "../models/provider.model";
 
 export class OrderSupplier {
     id: number;

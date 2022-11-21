@@ -54,12 +54,21 @@ export class FormComponent implements OnInit {
   }
   async save() {
     try {
-      this.spinner.show();
-      const response: any = this.restService.put(`/providers/update/${this.provider.id}`,this.provider);
-      this.spinner.hide();
-      this.provider = response.data ? response.data : this.provider;
-      this.notificationService.showSuccess('Operación realiza exitosamente', response.message)
-      this.location.back();
+      if(this.provider.id){
+        this.spinner.show();
+        const response: any = this.restService.put(`/providers/update/${this.provider.id}`,this.provider);
+        this.spinner.hide();
+        this.provider = response.data ? response.data : this.provider;
+        this.notificationService.showSuccess('Operación realiza exitosamente', response.message)
+        this.location.back();
+      }else{
+        this.spinner.show();
+        const response: any = this.restService.post(`/providers/create`,this.provider);
+        this.spinner.hide();
+        this.provider = response.data ? response.data : this.provider;
+        this.notificationService.showSuccess('Operación realiza exitosamente', response.message)
+        this.location.back();
+      }
     } catch (error) {
       this.spinner.hide();
       console.log(error);

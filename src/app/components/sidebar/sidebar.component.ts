@@ -77,6 +77,7 @@ export const ROUTES: RouteInfo[] = [
     isCollapsed: true,
     children: [
       { path: "raw-material", title: "Materia prima", type: "link" },
+      { path: "categories", title: "Categorías", type: "link" },
     ]
   }];
 
