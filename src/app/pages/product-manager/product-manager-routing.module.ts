@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { RawMaterialComponent } from './raw-material/raw-material.component';
 import { FormComponent as RawMaterialFormComponent } from './raw-material/form/form.component';
 import { CategoriesComponent as ProductCategoriesComponent } from './categories/categories.component';
+import { ProductsComponent } from './products/products.component';
+import { FormComponent as ProductFormComponent } from './products/form/form.component';
 
 const routes: Routes = [{
   path: "raw-material",
@@ -17,6 +19,15 @@ const routes: Routes = [{
 },{
   path: "categories",
   component: ProductCategoriesComponent,
+},{
+  path: "products",
+  component: ProductsComponent,
+},{
+  path: "products/form",
+  component: ProductFormComponent,
+},{
+  path: "products/form/:id",
+  component: ProductFormComponent,
 }];
 
 @NgModule({

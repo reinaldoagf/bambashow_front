@@ -78,6 +78,7 @@ export const ROUTES: RouteInfo[] = [
     children: [
       { path: "raw-material", title: "Materia prima", type: "link" },
       { path: "categories", title: "Categorías", type: "link" },
+      { path: "products", title: "Productos", type: "link" },
     ]
   }];
 
