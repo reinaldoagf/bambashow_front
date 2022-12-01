@@ -19,7 +19,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "main/login",
+    redirectTo: "main/landing", // /main/landing | /main/login
     pathMatch: "full"
   },
   {

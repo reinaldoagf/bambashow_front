@@ -1,84 +1,152 @@
-<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
+<nav id="navbar-main"
+  class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
   <div class="container">
-    <a class="navbar-brand mr-lg-5" [routerLink]="['/landing']">
+    <a class="navbar-brand mr-lg-5" [routerLink]="['/main/landing']">
       <img src="./assets/img/brand/logo.jpeg">
     </a>
     <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
-          [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+      [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-collapse collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
       <div class="navbar-collapse-header">
         <div class="row">
           <div class="col-6 collapse-brand">
-            <a [routerLink]="['/landing']">
+            <a [routerLink]="['/main/landing']">
               <img src="./assets/img/brand/blue.png">
             </a>
           </div>
           <div class="col-6 collapse-close">
             <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
-                  [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+              [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
               <span></span>
               <span></span>
             </button>
           </div>
         </div>
       </div>
-      <ul class="navbar-nav navbar-nav-hover align-items-lg-center">       
+      <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+        <li class="nav-item dropdown">
+          <a [routerLink]="['/main/landing']" class="dropdown-item">
+            <span class="nav-link-inner--text">Landing</span>
+          </a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link no-caret" data-toggle="dropdown" role="button">
             <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">Examples</span>
+            <span class="nav-link-inner--text">Quiénes somos</span>
           </a>
           <div class="dropdown-menu">
-            <a [routerLink]="['/main/landing']" class="dropdown-item">Landing</a>
-            <!-- <a [routerLink]="['/user-profile']" class="dropdown-item">Profile</a>
-            <a [routerLink]="['/login']" class="dropdown-item">Login</a>
-            <a [routerLink]="['/register']" class="dropdown-item">Register</a> -->
+            <a [routerLink]="['/main/about-us']" class="dropdown-item">Sobre nosotros</a>
+            <a [routerLink]="['/main/our-history']" class="dropdown-item">Nuestra historia</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-collection d-lg-none"></i>
+            <span class="nav-link-inner--text">Qué hacemos</span>
+          </a>
+          <div class="dropdown-menu">
+            <a [routerLink]="['/main/what-we-do']" class="dropdown-item">Lo que hacemos</a>
+            <a [routerLink]="['/main/our-process']" class="dropdown-item">Nuestro proceso</a>
           </div>
         </li>
       </ul>
       <ul class="navbar-nav align-items-lg-center ml-lg-auto">
         <li class="nav-item">
-          <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
+          <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank"
+            data-toggle="tooltip" title="Like us on Facebook">
             <i class="fa fa-facebook-square"></i>
             <span class="nav-link-inner--text d-lg-none">Facebook</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
+          <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank"
+            data-toggle="tooltip" title="Follow us on Instagram">
             <i class="fa fa-instagram"></i>
             <span class="nav-link-inner--text d-lg-none">Instagram</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-icon" href="https://twitter.com/creativetim" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
+          <a class="nav-link nav-link-icon" href="https://twitter.com/creativetim" target="_blank" data-toggle="tooltip"
+            title="Follow us on Twitter">
             <i class="fa fa-twitter-square"></i>
             <span class="nav-link-inner--text d-lg-none">Twitter</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial/argon-design-system-angular?ref=adsa-navbar" target="_blank" data-toggle="tooltip" title="Star us on Github">
+          <a class="nav-link nav-link-icon"
+            href="https://github.com/creativetimofficial/argon-design-system-angular?ref=adsa-navbar" target="_blank"
+            data-toggle="tooltip" title="Star us on Github">
             <i class="fa fa-github"></i>
             <span class="nav-link-inner--text d-lg-none">Github</span>
           </a>
         </li>
-        <li class="nav-item d-none d-lg-block ml-lg-4">
-          <button [routerLink]="['/main/login']" class="button button-neutral btn-icon">
-            <span class="btn-inner--icon">
-              <i class="fa fa-cloud-download mr-2"></i>
-            </span>
-            <span class="nav-link-inner--text">Iniciar sesión</span>
-          </button>
-        </li>
-        <li class="nav-item d-none d-lg-block ml-lg-4">
-          <button [routerLink]="['/main/signup']" class="button button-neutral btn-icon">
-            <span class="btn-inner--icon">
-              <i class="fa fa-cloud-download mr-2"></i>
-            </span>
-            <span class="nav-link-inner--text">Registrarme</span>
-          </button>
-        </li>
+        <ng-container *ngIf="isLoggedIn; else elseBlock">
+          <li class="nav-item d-none d-lg-block ml-lg-4">
+            <ul class="navbar-nav align-items-center ml-auto ml-md-0" >
+              <li class="nav-item dropdown" ngbDropdown placement="bottom-right">
+                <a class="nav-link pr-0 dropdown-toggle" role="button" id="dropdownBasic1" ngbDropdownToggle>
+                  <div class="media align-items-center">
+                    <span class="avatar avatar-sm rounded-circle">
+                      <!--  -->
+                      <img brokenPicture [urlCustom]="'https://img2.pngio.com/default-png-9-png-image-default-png-478_477.png'" alt="Image placeholder" class="w-100 h-100" src="assets/img/default.jpg" />
+                    </span>
+                    <div class="media-body ml-2 d-none d-lg-block" *ngIf="user">
+                      <span class="mb-0 text-sm  font-weight-bold">{{user.email}}</span>
+                    </div>
+                  </div>
+                </a>
+                <!--  -->
+                <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <div class=" dropdown-header noti-title">
+                    <h6 class="text-overflow m-0">Bienvenido</h6>
+                  </div>
+                  <a
+                    style="color: black;"
+                    routerLinkActive="active"
+                    [routerLink]="['/admin/dashboard']"
+                    class="dropdown-item"
+                  >
+                    <i class="ni ni-chart-bar-32"></i> <span>Panel administrativo</span>
+                  </a>
+                  <a
+                    style="color: black;"
+                    routerLinkActive="active"
+                    [routerLink]="['/admin/profile']"
+                    class="dropdown-item"
+                  >
+                    <i class="ni ni-single-02"></i> <span>My profile</span>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="javascript:void()" class="dropdown-item" [routerLink]="['/main/login']" style="color: black;">
+                    <i class="ni ni-user-run"></i> <span>Cerrar sesión</span>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ng-container>
+        <ng-template #elseBlock>
+          <ng-container>
+            <li class="nav-item d-none d-lg-block ml-lg-4">
+              <button [routerLink]="['/main/login']" class="button button-neutral btn-icon">
+                <span class="btn-inner--icon">
+                  <i class="fa fa-cloud-download mr-2"></i>
+                </span>
+                <span class="nav-link-inner--text">Iniciar sesión</span>
+              </button>
+            </li>
+            <li class="nav-item d-none d-lg-block ml-lg-4">
+              <button [routerLink]="['/main/signup']" class="button button-neutral btn-icon">
+                <span class="btn-inner--icon">
+                  <i class="fa fa-cloud-download mr-2"></i>
+                </span>
+                <span class="nav-link-inner--text">Registrarme</span>
+              </button>
+            </li>
+          </ng-container>
+        </ng-template>
       </ul>
     </div>
   </div>

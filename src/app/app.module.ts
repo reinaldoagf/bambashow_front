@@ -5,13 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { AppRoutingModule } from './app.routing';
+import { AppRoutingModule } from "./app.routing";
 
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
 import { ComponentsModule } from './components/components.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent, AdminLayoutComponent, MainLayoutComponent],
@@ -23,7 +24,8 @@ import { ComponentsModule } from './components/components.module';
     RouterModule,
     NgxSpinnerModule,
     AppRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    CoreModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]

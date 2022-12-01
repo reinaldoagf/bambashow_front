@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
+import { GuardService } from "../../core/services/guard.service";
 
 @Component({
     selector: 'app-navbar',
@@ -12,10 +13,13 @@ export class NavbarComponent implements OnInit {
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
 
-    constructor(public location: Location, private router: Router) {
+    constructor(public location: Location, private router: Router, private guardService: GuardService) {
     }
-
+    get isLoggedIn() {
+        return this.guardService.isLoggedIn();
+    }
     ngOnInit() {
+        console.log('isLoggedIn:',this.isLoggedIn)
       this.router.events.subscribe((event) => {
         this.isCollapsed = true;
         if (event instanceof NavigationStart) {

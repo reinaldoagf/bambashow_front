@@ -4,4 +4,18 @@
 ::ng-deep .modal-backdrop {
     z-index: 1050 !important;
 }
-::ng-deep .ngx-gallery { display: inline-block; margin-bottom: 20px; }
+::ng-deep .ngx-gallery { 
+    display: inline-block; 
+    margin-bottom: 20px;
+}
+::ng-deep .headroom--not-top .dropdown .dropdown-item,
+::ng-deep .headroom--not-top .nav-item .nav-link .nav-link-inner--text {
+    color: #fff;
+}
+
+::ng-deep .headroom--not-top .dropdown .dropdown-item:hover{
+    background-color: transparent;
+}
+::ng-deep .headroom--not-top .dropdown .dropdown-menu .dropdown-item{
+    color: #000;
+}
