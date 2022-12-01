@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { MainLayoutComponent } from "./layouts/main-layout/main-layout.component";
+import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
 
 import { LoginComponent } from "./pages/login/login.component";
 import { SignupComponent } from "./pages/signup/signup.component";
@@ -19,7 +20,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "main/landing", // /main/landing | /main/login
+    redirectTo: "main/landing", // /main/landing | /auth/login
     pathMatch: "full"
   },
   {
@@ -41,8 +42,8 @@ const routes: Routes = [
   ]
   },
   {
-    path: "main",
-    component: MainLayoutComponent,
+    path: "auth",
+    component: AuthLayoutComponent,
     children: [
       {
         path: "login",
@@ -52,6 +53,12 @@ const routes: Routes = [
         path: "signup",
         component: SignupComponent,
       },
+    ]
+  },
+  {
+    path: "main",
+    component: MainLayoutComponent,
+    children: [
       {
         path: "landing",
         component: LandingComponent,

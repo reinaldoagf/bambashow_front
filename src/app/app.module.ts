@@ -13,9 +13,10 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 
 import { ComponentsModule } from './components/components.module';
 import { CoreModule } from './core/core.module';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 @NgModule({
-  declarations: [AppComponent, AdminLayoutComponent, MainLayoutComponent],
+  declarations: [AppComponent, AdminLayoutComponent, MainLayoutComponent, AuthLayoutComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
