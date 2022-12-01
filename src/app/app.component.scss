@@ -1,3 +1,7 @@
-::ng-deep body {     
-    overflow-x: hidden;  
+::ng-deep body {
+    overflow-x: hidden;
 }
+::ng-deep .modal-backdrop {
+    z-index: 1050 !important;
+}
+::ng-deep .ngx-gallery { display: inline-block; margin-bottom: 20px; }

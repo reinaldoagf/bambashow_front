@@ -2,7 +2,8 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from "ngx-toastr";
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FormsModule } from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //pipes
@@ -25,6 +26,7 @@ import { BadgeStatusDirective } from './directives/badge-status.directive';
     NgxSpinnerModule,    
     ToastrModule.forRoot({}),
     NgMultiSelectDropDownModule.forRoot(),
+    NgxGalleryModule,
     NgbModule
   ],
   exports: [
@@ -37,6 +39,7 @@ import { BadgeStatusDirective } from './directives/badge-status.directive';
     NgxSpinnerModule,    
     ToastrModule,
     NgMultiSelectDropDownModule,
+    NgxGalleryModule,
     NgbModule
   ],
   providers: [
