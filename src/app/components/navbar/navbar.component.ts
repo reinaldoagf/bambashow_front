@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
-import { GuardService } from "../../core/services/guard.service";
+import { NgxSpinnerService } from 'ngx-spinner';
+import { GuardService } from "src/app/core/services/guard.service";
+import { RestService } from "src/app/core/services/rest.service";
 
 @Component({
     selector: 'app-navbar',
@@ -12,14 +14,16 @@ export class NavbarComponent implements OnInit {
     public isCollapsed = true;
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
+    social_networks: any[] = [];
 
-    constructor(public location: Location, private router: Router, private guardService: GuardService) {
+    constructor(public location: Location, private router: Router, private guardService: GuardService,
+        private spinner: NgxSpinnerService,
+        private restService: RestService,) {
     }
     get isLoggedIn() {
         return this.guardService.isLoggedIn();
     }
     ngOnInit() {
-        console.log('isLoggedIn:',this.isLoggedIn)
       this.router.events.subscribe((event) => {
         this.isCollapsed = true;
         if (event instanceof NavigationStart) {
@@ -36,6 +40,7 @@ export class NavbarComponent implements OnInit {
      this.location.subscribe((ev:PopStateEvent) => {
          this.lastPoppedUrl = ev.url;
      });
+     this.getData()
     }
 
     isHome() {
@@ -56,5 +61,20 @@ export class NavbarComponent implements OnInit {
         else {
             return false;
         }
+    }
+    async getData() {
+      try {
+        this.spinner.show();
+        const [
+          response1,
+        ]: any[] = await Promise.all([
+          this.restService.get(`/settings/content`),
+        ]);
+        this.spinner.hide();
+        this.social_networks = response1.data?.social_networks ? response1.data.social_networks : [];
+      } catch (error) {
+        this.spinner.hide();
+        console.log(error);
+      }
     }
 }

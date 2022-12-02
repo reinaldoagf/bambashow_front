@@ -10,7 +10,7 @@ import { RestService } from 'src/app/core/services/rest.service';
 })
 export class FooterComponent implements OnInit {
     test : Date = new Date();
-    settings: any[] = [];
+    social_networks: any[] = [];
     constructor(
       private spinner: NgxSpinnerService,
       private restService: RestService,
@@ -30,8 +30,7 @@ export class FooterComponent implements OnInit {
         this.restService.get(`/settings/content`),
       ]);
       this.spinner.hide();
-      this.settings = response1.data ? response1.data : [];
-      console.log('response1:',response1)
+      this.social_networks = response1.data?.social_networks ? response1.data.social_networks : [];
     } catch (error) {
       this.spinner.hide();
       console.log(error);

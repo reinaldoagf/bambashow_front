@@ -28,7 +28,6 @@ export class LandingComponent implements OnInit {
         ]);
         this.spinner.hide();
         this.sections = response1.data ? response1.data : [];
-        console.log('response1:',response1)
       } catch (error) {
         this.spinner.hide();
         console.log(error);
