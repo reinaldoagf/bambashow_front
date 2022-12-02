@@ -1,0 +1,64 @@
+
+<div class=" container-fluid py-4">
+    <div class=" row">
+        <div class=" col">
+            <div class="card">
+                <div class="card-header border-0">
+                    <div class="row align-items-center" style="margin-bottom: 10px;">
+                        <div class="col">
+                            <h3 class=" mb-0">Lista de secciones</h3>
+                        </div>
+                        <!-- <div class="col text-right">
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input class="form-control" placeholder="Buscar sección..." [(ngModel)]="searchTable">
+                        </div>
+                    </div>
+                </div>
+                <div class=" table-responsive">
+                    <table class=" table align-items-center table-flush">
+                        <thead class=" thead-light">
+                            <tr>
+                                <th class="text-uppercase sort" data-sort="project" scope="col"
+                                    *ngFor="let element of headerElements">
+                                    {{element}}
+                                </th>
+
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class=" list">
+                            <tr *ngFor="let item of ( paginateSections  | genericFilter: searchTable ) ;index as i">
+                                <td class="budget">{{item.key}}</td>
+                                <td class="budget">
+                                    <label class="custom-toggle custom-toggle-checkbox mr-1">
+                                        <input checked="{{item.active?'checked':''}}" type="checkbox" (click)="onCheck($event,item)">
+                                        <span data-label-off="No" data-label-on="Yes" class="custom-toggle-slider rounded-circle">
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="budget">
+                                    <a class="table-action table-action-delete" ngbTooltip="Editar sección"
+                                        placement="top" href="javascript:void(0)"
+                                        [routerLink]="['/admin/pages-manager/home/form',item.id]">
+                                        <i class=" fa fa-edit"> </i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class=" card-footer border-0">
+                    <div class="pagination-container">
+                        <ngb-pagination [collectionSize]="sections.length" #numPages [pageSize]="itemsPerPage"
+                            [(page)]="currentPage" (pageChange)="onPageChange(currentPage)"
+                            [disabled]="searchTable.length">
+                        </ngb-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

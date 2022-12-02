@@ -40,7 +40,7 @@ export const ROUTES: RouteInfo[] = [
     path: "/admin/pages-manager",
     title: "Gestor de páginas",
     type: "sub",
-    icontype: "ni-circle-08 text-info",
+    icontype: "ni-calendar-grid-58 text-info",
     collapse: "examples",
     isCollapsed: true,
     children: [

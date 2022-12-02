@@ -38,6 +38,9 @@ const routes: Routes = [
     },{
       path: "product-manager",
       loadChildren: () => import('./pages/product-manager/product-manager.module').then(x => x.ProductManagerModule),
+    },{
+      path: "pages-manager",
+      loadChildren: () => import('./pages/pages-manager/pages-manager.module').then(x => x.PagesManagerModule),
     },
   ]
   },
@@ -60,7 +63,7 @@ const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       {
-        path: "landing",
+        path: "home",
         component: HomeComponent,
       },
     ]

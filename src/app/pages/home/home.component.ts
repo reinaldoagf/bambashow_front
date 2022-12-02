@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
           this.restService.get(`/home/sections`),
         ]);
         this.spinner.hide();
+        console.log(response1);
+
         this.sections = response1.data ? response1.data : [];
       } catch (error) {
         this.spinner.hide();

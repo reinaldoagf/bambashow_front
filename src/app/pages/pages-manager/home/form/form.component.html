@@ -1,0 +1,212 @@
+<div class=" header bg-danger pb-6">
+    <div class=" container-fluid">
+        <div class=" header-body">
+            <div class=" row align-items-center py-4">
+                <div class=" col-lg-6 col-7">
+                    <h6 class=" h2 text-white d-inline-block mb-0">Actualizar sección</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class=" container-fluid mt--15">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class=" card mb-4">
+                <div class=" card-header">
+                    <h3 class=" mb-0">Formulario</h3>
+                </div>
+                <div class=" card-body">
+                    <ng-container *ngIf="section.key == 'services' && section.active">
+                        <div class="row">
+                            <div class="col">
+                                <div class=" form-group">
+                                    <label class=" form-control-label" for="title_side">
+                                        Título
+                                    </label>
+                                    <input class=" form-control" id="title_side" placeholder="Título" type="text"
+                                        [(ngModel)]="section.title_side" />
+                                </div>
+                            </div>
+                            <div class="col">
+                              
+                                <div class="form-group">
+                                    <label class="form-control-label">Subir Imagen</label>
+                                    <div class="avatar-upload">
+                                    <div class="avatar-edit">
+                                        <input type="file" capture="environment" id="upload-image" (change)="fileProgress($event)"/>
+                                        <label for="upload-image"></label>
+                                    </div>
+                                    <div class="avatar-preview">
+                                        <img 
+                                            class="upload-img img-responsive img-circle" 
+                                            id="imagePreview" 
+                                            [src]="previewUrl?previewUrl:'https://icons.iconarchive.com/icons/graphicloads/100-flat-2/256/arrow-upload-icon.png'" 
+                                            alt="User profile picture">
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col"> 
+                                <div class=" form-group">
+                                    <label class=" form-control-label" for="description_side">
+                                        Descripción
+                                    </label>
+                                    <textarea class=" form-control" id="description_side" placeholder="Descripción"
+                                        type="text" [(ngModel)]="section.description_side">
+                                    </textarea>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+
+                                <div class=" card">
+                                    <div class=" card-header border-0">
+                                        <div class=" row">
+                                            <div class="col text-right">
+                                                <button class="btn btn-sm btn-primary" (click)="addItem()">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class=" table-responsive">
+                                        <table class=" table align-items-center table-flush table-striped m-0">
+                                            <thead class=" thead-light">
+                                                <tr>
+                                                    <th *ngFor="let element of ['Theme','Text','Opciones']">
+                                                        {{element}}
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let element of section.list_items;index as i">
+                                                    <td class="table-td">
+                                                        <div class="badge badge-{{element.theme}} mr-3 d-flex">
+                                                            <span class=" status"> {{element.theme}} </span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="table-td">{{element.text}}</td>
+                                                    <td class="table-td">
+                                                        <ng-container>
+                                                            <a class="table-action table-action-delete"
+                                                                ngbTooltip="Eliminar" placement="top"
+                                                                href="javascript:void(0)" (click)="deleteItem(element)">
+                                                                <i class="fa fa-trash"> </i>
+                                                            </a>
+                                                            <a class="table-action table-action-delete"
+                                                                ngbTooltip="Editar" placement="top"
+                                                                href="javascript:void(0)" (click)="editItem(element)">
+                                                                <i class="fa fa-edit"> </i>
+                                                            </a>
+                                                        </ng-container>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="table-td">
+
+                                                        <!-- (onSelect)="onItemSelect($event)"-->
+                                                        <ng-multiselect-dropdown name="theme" [placeholder]="'Temas'"
+                                                            [data]="['info','success','danger','warning']"
+                                                            [(ngModel)]="listItem.theme" [settings]="dropdownSettings"
+                                                            [disabled]="false">
+                                                        </ng-multiselect-dropdown>
+                                                    </td>
+                                                    <td class="table-td">
+                                                        <input class=" form-control" placeholder="Text"
+                                                            [(ngModel)]="listItem.text"
+                                                            [ngModelOptions]="{standalone: true}" type="text" />
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ng-container>
+                    <!-- <div class=" form-group">
+                        <label class=" form-control-label" for="message">
+                            Mensaje
+                        </label>
+                        <textarea class=" form-control" id="message" placeholder="Mensaje"
+                            type="text" [(ngModel)]="order.message">
+                        </textarea>
+                    </div>
+                    <div class=" form-group">
+                        <label class=" form-control-label" for="providers">
+                            Proveedores
+                        </label>
+                        <ng-multiselect-dropdown
+                            name="provider"
+                            [placeholder]="'Proveedores'"
+                            [data]="providers"
+                            [(ngModel)]="order.id_provider"
+                            [settings]="providersDropdownSettings"
+                            (onSelect)="onItemSelect($event)"
+                            [disabled]="false">
+                        </ng-multiselect-dropdown>
+                    </div>
+                    <div class="items__wrapper" >
+                        <ng-container *ngFor="let item of order.items; index as i">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class=" form-group">
+                                        <label class=" form-control-label" for="raw-material">
+                                            Materia prima
+                                        </label>
+                                        <#!-- name="raw-material" --#>
+                                        <ng-multiselect-dropdown
+                                            [placeholder]="'Materia prima'"
+                                            [settings]="rawMaterialDropdownSettings"
+                                            [data]="rawMaterialOptions"
+                                            [(ngModel)]="item.id_raw_material"
+                                            (onSelect)="onItemSelect($event)"
+                                            [disabled]="order.items.length > (i + 1)">
+                                        </ng-multiselect-dropdown>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class=" form-control-label" for="quantity">
+                                        Cantidad
+                                    </label>
+                                    <input class=" form-control" id="quantity" placeholder="Cantidad"
+                                        type="number" min="1" [(ngModel)]="item.quantity" [disabled]="order.items.length > (i + 1)"/>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class=" form-control-label" for="square_meter">
+                                        Metros cuadrados
+                                    </label>
+                                    <input class=" form-control" id="square_meter" placeholder="Metros cuadrados"
+                                        type="number" [(ngModel)]="item.square_meter" [disabled]="order.items.length > (i + 1)"/>
+                                </div>
+                                <div class="col-md-2 d-flex justify-content-center align-items-center">
+                                    <button class="btn btn-danger" (click)="removeItem(item)">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="d-flex justify-content-end" >
+                            <button class="btn btn-success" (click)="addItem()">
+                                Agregar elemento
+                                <i class="fa fa-plus"></i>
+                            </button>
+                    </div> -->
+                </div>
+
+                <div class="card-footer justify-content-end">
+                    <button type="submit" class="btn btn-primary" (click)="save()"> {{section.id ? 'Actualizar' :
+                        'Crear'}} </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,9 +6,9 @@ import { RawMaterialComponent } from './raw-material/raw-material.component';
 import { FormComponent as RawMaterialFormComponent } from './raw-material/form/form.component';
 import { CategoriesComponent as ProductCategoriesComponent } from './categories/categories.component';
 import { ProductsComponent } from './products/products.component';
+import { FormComponent as ProductFormComponent } from './products/form/form.component';
 
 import { SharedModule } from "../../shared/shared.module";
-import { FormComponent } from './products/form/form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { FormComponent } from './products/form/form.component';
     RawMaterialFormComponent,
     ProductCategoriesComponent,
     ProductsComponent,
-    FormComponent
+    ProductFormComponent
   ],
   imports: [
     CommonModule,
