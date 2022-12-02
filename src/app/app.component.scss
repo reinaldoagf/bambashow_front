@@ -9,7 +9,8 @@
     margin-bottom: 20px;
 }
 ::ng-deep .headroom--not-top .dropdown .dropdown-item,
-::ng-deep .headroom--not-top .nav-item .nav-link .nav-link-inner--text {
+::ng-deep .headroom--not-top .nav-item .nav-link .nav-link-inner--text,
+::ng-deep .headroom--not-top .nav-item .nav-link i {
     color: #fff;
 }
 
