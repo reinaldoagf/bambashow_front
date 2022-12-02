@@ -3,12 +3,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { RestService } from 'src/app/core/services/rest.service';
 
 @Component({
-    selector: 'app-landing',
-    templateUrl: './landing.component.html',
-    styleUrls: ['./landing.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 
-export class LandingComponent implements OnInit {
+export class HomeComponent implements OnInit {
     focus: any;
     focus1: any;
     sections: any[] = []
@@ -24,7 +24,7 @@ export class LandingComponent implements OnInit {
         const [
           response1,
         ]: any[] = await Promise.all([
-          this.restService.get(`/landing/sections`),
+          this.restService.get(`/home/sections`),
         ]);
         this.spinner.hide();
         this.sections = response1.data ? response1.data : [];

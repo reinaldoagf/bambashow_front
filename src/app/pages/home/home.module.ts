@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { LandingComponent } from './landing.component';
+import { HomeComponent } from './home.component';
 
 import { SharedModule } from "../../shared/shared.module";
 import { SectionsModule } from '../../sections/sections.module';
@@ -20,8 +20,8 @@ import { CoreModule } from '../../core/core.module';
         SharedModule,
         CoreModule, 
     ],
-    declarations: [ LandingComponent ],
-    exports:[ LandingComponent ],
+    declarations: [ HomeComponent ],
+    exports:[ HomeComponent ],
     providers: []
 })
-export class LandingModule { }
+export class HomeModule { }

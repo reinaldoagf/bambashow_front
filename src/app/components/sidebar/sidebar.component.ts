@@ -37,6 +37,16 @@ export const ROUTES: RouteInfo[] = [
     type: "link",
     icontype: "ni-chart-bar-32 text-primary",
   }, {
+    path: "/admin/pages-manager",
+    title: "Gestor de páginas",
+    type: "sub",
+    icontype: "ni-circle-08 text-info",
+    collapse: "examples",
+    isCollapsed: true,
+    children: [
+      { path: "home", title: "Inicio", type: "link" },
+    ]
+  }, {
     path: "/admin/user-manager",
     title: "Gestor de usuarios",
     type: "sub",

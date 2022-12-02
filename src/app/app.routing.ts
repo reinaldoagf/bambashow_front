@@ -10,7 +10,7 @@ import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component
 
 import { LoginComponent } from "./pages/login/login.component";
 import { SignupComponent } from "./pages/signup/signup.component";
-import { LandingComponent } from './pages/landing/landing.component';
+import { HomeComponent } from './pages/home/home.component';
 // import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 /* 
@@ -20,7 +20,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "main/landing", // /main/landing | /auth/login
+    redirectTo: "main/home", // /main/home | /auth/login
     pathMatch: "full"
   },
   {
@@ -61,7 +61,7 @@ const routes: Routes = [
     children: [
       {
         path: "landing",
-        component: LandingComponent,
+        component: HomeComponent,
       },
     ]
   },
