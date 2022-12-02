@@ -1,0 +1,21 @@
+
+::ng-deep .promotions-carousel .carousel{
+    height: 500px;
+}
+::ng-deep .promotions-carousel .carousel-item {
+    height: 500px;
+}
+::ng-deep .promotions-carousel button span{
+    background-color: #860a54;
+    padding: 20px;
+    border-radius: 100%;
+    background-size: 15px;
+}
+::ng-deep .promotions-carousel .carousel-indicators{
+    bottom: 15px;
+}
+::ng-deep .promotions-carousel .img-fluid{
+    height: 500px;
+    width: 500px;
+    object-fit: cover;
+}

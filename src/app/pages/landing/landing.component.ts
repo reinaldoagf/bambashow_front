@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { RestService } from 'src/app/core/services/rest.service';
 
 @Component({
     selector: 'app-landing',
@@ -9,8 +11,27 @@ import { Component, OnInit } from '@angular/core';
 export class LandingComponent implements OnInit {
     focus: any;
     focus1: any;
-  
-    constructor() { }
-  
-    ngOnInit() {}
+    sections: any[] = []
+    constructor(
+        private spinner: NgxSpinnerService,
+        private restService: RestService,) { }
+    ngOnInit() {
+        this.getData()
+    }
+    async getData() {
+      try {
+        this.spinner.show();
+        const [
+          response1,
+        ]: any[] = await Promise.all([
+          this.restService.get(`/landing/sections`),
+        ]);
+        this.spinner.hide();
+        this.sections = response1.data ? response1.data : [];
+        console.log('response1:',response1)
+      } catch (error) {
+        this.spinner.hide();
+        console.log(error);
+      }
+    }
 }
