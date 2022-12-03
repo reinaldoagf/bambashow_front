@@ -5,6 +5,7 @@ import { AdminNavbarService } from 'src/app/core/services/admin-navbar.service';
 import { RestService } from 'src/app/core/services/rest.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { User } from 'src/app/core/models/user.model';
+import { Rol } from 'src/app/core/models/rol.model';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,7 +16,14 @@ import Swal from 'sweetalert2';
 export class DetailsComponent implements OnInit {
 
   user: User = new User();
-
+  roles: Rol[] = [];
+  dropdownSettings: any = {
+    singleSelection: true,
+    allowSearchFilter: true,
+    closeDropDownOnSelection: true,
+    textField: 'name',
+    idField: 'id'
+  }
     constructor(
       private router: Router,
       private activeRoute: ActivatedRoute,
@@ -41,11 +49,15 @@ export class DetailsComponent implements OnInit {
       this.spinner.show();
       const [
         response1,
+        response2,
       ]: any[] = await Promise.all([
         this.restService.get(`/users/get/${this.user.id}`),
+        this.restService.get(`/roles`),
       ]);
       this.spinner.hide();
       this.user = response1.data ? response1.data : this.user;
+      this.roles = response2.data ? response2.data : [];
+      console.log(this.user)
 
     } catch (error) {
       this.spinner.hide();

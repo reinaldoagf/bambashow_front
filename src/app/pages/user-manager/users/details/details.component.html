@@ -1,5 +1,4 @@
-<div class=" header pb-6 d-flex align-items-center"
-  style="position: relative;
+<div class=" header pb-6 d-flex align-items-center" style="position: relative;
   min-height: 400px;
   background-image: url({{user.photo ? user.photo : 'https://img2.pngio.com/default-png-9-png-image-default-png-478_477.png'}});
   background-size: cover;
@@ -94,12 +93,15 @@
     </div>
     <div class=" col-xl-8 order-xl-1">
       <div class=" card card-profile">
-        <img brokenPicture [urlCustom]="'https://img2.pngio.com/default-png-9-png-image-default-png-478_477.png'" alt="Image placeholder" class=" card-img-top" src="assets/img/brand/logo.jpeg" />
+        <img brokenPicture [urlCustom]="'https://img2.pngio.com/default-png-9-png-image-default-png-478_477.png'"
+          alt="Image placeholder" class=" card-img-top" src="assets/img/brand/logo.jpeg" />
         <div class=" row justify-content-center">
           <div class=" col-lg-3 order-lg-2">
             <div class=" card-profile-image">
               <a href="javascript:void(0)">
-                <img brokenPicture [urlCustom]="'https://img2.pngio.com/default-png-9-png-image-default-png-478_477.png'" class=" rounded-circle" src="{{user.photo}}" />
+                <img brokenPicture
+                  [urlCustom]="'https://img2.pngio.com/default-png-9-png-image-default-png-478_477.png'"
+                  class=" rounded-circle" src="{{user.photo}}" />
               </a>
             </div>
           </div>
@@ -115,7 +117,7 @@
           </div>
         </div>
         <div class=" card-body">
-          
+
           <div class=" text-center">
             <h5 class=" h3">
               {{user.email}}<span class=" font-weight-light"> , 27 </span>
@@ -130,6 +132,12 @@
             <div>
               <i class=" ni education_hat mr-2"> </i> University of Computer
               Science
+            </div>
+            <div>
+              <!-- (onSelect)="onItemSelect($event)" -->
+              <ng-multiselect-dropdown name="rol" [placeholder]="'Roles'" [data]="roles" [(ngModel)]="user.rol"
+                [settings]="dropdownSettings" [disabled]="false">
+              </ng-multiselect-dropdown>
             </div>
           </div>
         </div>
