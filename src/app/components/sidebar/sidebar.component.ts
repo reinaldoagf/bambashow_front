@@ -81,6 +81,17 @@ export const ROUTES: RouteInfo[] = [
       { path: "products", title: "Productos", type: "link" },
       { path: "orders", title: "Pedidos", type: "link" },
     ]
+  }, {
+    path: "/admin/settings",
+    title: "Configuración",
+    type: "sub",
+    icontype: "ni-settings-gear-65 text-primary",
+    collapse: "examples",
+    isCollapsed: true,
+    children: [
+      { path: "social-networks", title: "Redes sociales", type: "link" },
+      { path: "bank-data", title: "Datos bancarios", type: "link" },
+    ]
   }];
 
 @Component({

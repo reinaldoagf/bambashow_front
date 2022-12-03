@@ -34,8 +34,8 @@
                             <h3 class=" mb-0">Lista de productos</h3>
                         </div>
                         <div class="col text-right">
-                            <!-- *ngIf="getPermission('dashboards/product-prices-list','register',null,null)" class="btn btn-sm btn-primary" (click)="navigateTo(['dashboards/product-price-list-form'])" -->
-                            <!-- <button class="btn btn-sm btn-primary" (click)="open(form)">Crear nuevo</button> -->
+                            <!-- (click)="open(form)" -->
+                            <button class="btn btn-sm btn-primary">Crear nuevo</button>
                         </div>
                     </div>
                     <div class="row">
@@ -71,8 +71,9 @@
                                 </td>
                                 <td class="budget">{{item.name}}</td>
                                 <td class="budget">{{(item.price | currency:'USD')}}</td>
-                                <td class="budget">{{item.product_category?.name ? item.product_category.name: 'Sin
-                                    categoría'}}</td>
+                                <td class="budget">
+                                    {{item.product_category?.name ? item.product_category.name: 'Sin categoría'}}
+                                </td>
                                 <td class="budget">
                                     <ng-container *ngFor="let stock of ( item.stock )">
                                         <div>
@@ -88,10 +89,10 @@
                                         [routerLink]="['/admin/product-manager/products/form',item.id]">
                                         <i class="fa fa-edit"> </i>
                                     </a>
-                                    <!-- <a class="table-action table-action-delete" ngbTooltip="Eliminar materia prima"
+                                    <a class="table-action table-action-delete" ngbTooltip="Eliminar producto"
                                             placement="top" href="javascript:void(0)" (click)="confirmDeleted(item)">
                                             <i class="fa fa-trash"> </i>
-                                        </a> -->
+                                        </a>
                                 </td>
 
                             </tr>
