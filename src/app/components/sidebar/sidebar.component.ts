@@ -81,24 +81,6 @@ export const ROUTES: RouteInfo[] = [
       { path: "products", title: "Productos", type: "link" },
       { path: "orders", title: "Pedidos", type: "link" },
     ]
-  }, {
-    path: "/admin/human-resources-manager",
-    title: "Gestión de recursos humanos",
-    type: "sub",
-    icontype: "ni-badge text-warning",
-    collapse: "examples",
-    isCollapsed: true,
-    children: [
-    ]
-  }, {
-    path: "/admin/finance-manager",
-    title: "Gestión de finanzas",
-    type: "sub",
-    icontype: "ni-chart-bar-32 text-info",
-    collapse: "examples",
-    isCollapsed: true,
-    children: [
-    ]
   }];
 
 @Component({
