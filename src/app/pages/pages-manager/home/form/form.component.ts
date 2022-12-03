@@ -18,7 +18,6 @@ export class FormComponent implements OnInit {
   section: HomeSection = new HomeSection();
   listItem: ListItem = new ListItem();
   fileData: File = null;
-  previewUrl: any = null;
   dropdownSettings: any = {
     singleSelection: true,
     allowSearchFilter: true,
@@ -33,15 +32,6 @@ export class FormComponent implements OnInit {
     private restService: RestService,
     private adminNavbarService: AdminNavbarService,
     private notificationService: NotificationService) { }
-   get getFormData(){
-    const formData: any = new FormData();
-    const keys = Object.keys(this.section)
-    keys.map(element => {
-      if(this.section[element] !== null)
-      formData.append(element, `${this.section[element]}`);
-    });
-    return formData;
-   }
   ngOnInit(): void {
     this.adminNavbarService.changePage({
       path: '/admin/pages-manager/home/form/:id',
@@ -72,7 +62,7 @@ export class FormComponent implements OnInit {
   async save() {
     try {
       this.spinner.show();
-      const response: any = this.restService.put(`/home/sections/update/${this.section.id}`, this.section);
+      const response: any = await this.restService.put(`/home/sections/update/${this.section.id}`, this.section);
       this.spinner.hide();
       this.section = response.data ? response.data : this.section;
       this.notificationService.showSuccess('Operación realiza exitosamente', response.message)
@@ -128,7 +118,6 @@ export class FormComponent implements OnInit {
     this.fileData = <File>fileInput.target.files[0];
     this.preview();
   }
-
   preview() {
     if (
       this.fileData.type.match('image/png') ||
@@ -137,13 +126,14 @@ export class FormComponent implements OnInit {
     ) {
       this.section.image_side = this.fileData;
       var reader = new FileReader();
-      reader.readAsDataURL(this.fileData);
-      reader.onload = _event => {
-        this.previewUrl = reader.result;
-      };
-
+      reader.onload = this.handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(this.fileData);
     } else {
       this.notificationService.showWarning('Formato no permitido', 'Solo se permite formato .png, .jpg, y .jpeg')
     }
   }
+  handleReaderLoaded(e) {
+    this.section.image_side = 'data:image/png;base64,' + btoa(e.target.result)
+  }
+  /*<<<<<<<<<<<<<<<<<<<<<<<MANEJO DE IMAGEN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 }
