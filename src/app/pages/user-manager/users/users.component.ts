@@ -46,7 +46,7 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.adminNavbarService.changePage({
       path: '/admin/user-manager/users',
-      breadcumbs: ['Gestor de usuario', 'Usuarios']
+      breadcumbs: ['Gestión de usuario', 'Usuarios']
     })
     this.getData()
   }

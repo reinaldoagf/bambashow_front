@@ -63,7 +63,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.adminNavbarService.changePage({
       path: '/admin/user-manager/providers/form/:id',
-      breadcumbs: ['Gestor de proveedores', 'Pedidos', 'Formulario']
+      breadcumbs: ['Gestión de proveedores', 'Pedidos', 'Formulario']
     })
     this.getData()
     console.log(this.rawMaterialOptions)

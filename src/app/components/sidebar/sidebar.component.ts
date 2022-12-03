@@ -38,7 +38,7 @@ export const ROUTES: RouteInfo[] = [
     icontype: "ni-chart-bar-32 text-primary",
   }, {
     path: "/admin/pages-manager",
-    title: "Gestor de páginas",
+    title: "Gestión de páginas",
     type: "sub",
     icontype: "ni-calendar-grid-58 text-info",
     collapse: "examples",
@@ -48,7 +48,7 @@ export const ROUTES: RouteInfo[] = [
     ]
   }, {
     path: "/admin/user-manager",
-    title: "Gestor de usuarios",
+    title: "Gestión de usuarios",
     type: "sub",
     icontype: "ni-circle-08 text-info",
     collapse: "examples",
@@ -56,20 +56,10 @@ export const ROUTES: RouteInfo[] = [
     children: [
       { path: "users", title: "Usuarios", type: "link" },
       { path: "roles", title: "Roles", type: "link" },
-      /* {
-        path: "budget-expenses", 
-        title: "Contabilidad",//"Presupuesto gastos", 
-        type: "sub",
-        collapse: "examples",
-        isCollapsed: true,
-        children: [
-          {path: "invoice-income", title: "Ingreso factura", type: "link"},       
-        ]
-      } */
     ]
   }, {
     path: "/admin/supplier-manager",
-    title: "Gestor de proveedores",
+    title: "Gestión de proveedores",
     type: "sub",
     icontype: "ni-collection text-success",
     collapse: "examples",
@@ -80,7 +70,7 @@ export const ROUTES: RouteInfo[] = [
     ]
   }, {
     path: "/admin/product-manager",
-    title: "Gestor de productos",
+    title: "Gestión de productos",
     type: "sub",
     icontype: "ni-money-coins text-danger",
     collapse: "examples",
@@ -89,6 +79,25 @@ export const ROUTES: RouteInfo[] = [
       { path: "raw-material", title: "Materia prima", type: "link" },
       { path: "categories", title: "Categorías", type: "link" },
       { path: "products", title: "Productos", type: "link" },
+      { path: "orders", title: "Pedidos", type: "link" },
+    ]
+  }, {
+    path: "/admin/human-resources-manager",
+    title: "Gestión de recursos humanos",
+    type: "sub",
+    icontype: "ni-badge text-warning",
+    collapse: "examples",
+    isCollapsed: true,
+    children: [
+    ]
+  }, {
+    path: "/admin/finance-manager",
+    title: "Gestión de finanzas",
+    type: "sub",
+    icontype: "ni-chart-bar-32 text-info",
+    collapse: "examples",
+    isCollapsed: true,
+    children: [
     ]
   }];
 

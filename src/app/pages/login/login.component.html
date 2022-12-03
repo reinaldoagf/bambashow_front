@@ -15,7 +15,7 @@
         <div class="card bg-gradient-secondary shadow border-0">
           <div class="card-body px-lg-5 py-lg-5">
             <div class="text-center text-muted mb-4">
-              <small>Or sign in with credentials</small>
+              <small>Inicia sesión con credenciales</small>
             </div>
             <form role="form">
               <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
@@ -36,28 +36,16 @@
                     (blur)="focus1=false" [(ngModel)]="user.password" [ngModelOptions]="{ standalone: true }">
                 </div>
               </div>
-              <div class="custom-control custom-control-alternative custom-checkbox">
+              <!-- <div class="custom-control custom-control-alternative custom-checkbox">
                 <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
                 <label class="custom-control-label" for=" customCheckLogin">
                   <span>Remember me</span>
                 </label>
-              </div>
+              </div> -->
               <div class="text-center">
-                <button type="button" class="btn btn-primary my-4" (click)="login()">Sign in</button>
+                <button type="button" class="btn btn-primary my-4" (click)="login()">Iniciar sesión</button>
               </div>
             </form>
-          </div>
-        </div>
-        <div class="row mt-3">
-          <div class="col-6">
-            <a href="javascript:void(0)" class="text-light">
-              <small>Forgot password?</small>
-            </a>
-          </div>
-          <div class="col-6 text-right">
-            <a href="javascript:void(0)" class="text-light">
-              <small>Create new account</small>
-            </a>
           </div>
         </div>
       </div>

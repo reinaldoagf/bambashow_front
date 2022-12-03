@@ -41,7 +41,7 @@ export class RolesComponent implements OnInit {
   ngOnInit(): void {    
     this.adminNavbarService.changePage({
       path:'/admin/user-manager/roles',
-      breadcumbs: ['Gestor de usuario', 'Roles']
+      breadcumbs: ['Gestión de usuario', 'Roles']
     })
     this.getData()
   }

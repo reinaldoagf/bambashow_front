@@ -41,7 +41,7 @@ export class RawMaterialComponent implements OnInit {
   ngOnInit(): void {
     this.adminNavbarService.changePage({
       path: '/admin/product-manager/raw-material',
-      breadcumbs: ['Gestor de productos', 'Materia prima']
+      breadcumbs: ['Gestión de productos', 'Materia prima']
     })
     this.getData()
   }

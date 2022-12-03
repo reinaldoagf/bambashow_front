@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.adminNavbarService.changePage({
       path: '/admin/pages-manager/home',
-      breadcumbs: ['Gestor de páginas', 'Home']
+      breadcumbs: ['Gestión de páginas', 'Home']
     })
     this.getData()
   }

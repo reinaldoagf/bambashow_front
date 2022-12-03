@@ -42,7 +42,7 @@ export class ProvidersComponent implements OnInit {
   ngOnInit(): void {
     this.adminNavbarService.changePage({
       path: '/admin/supplier-manager/providers',
-      breadcumbs: ['Gestor de proveedores', 'Proveedores']
+      breadcumbs: ['Gestión de proveedores', 'Proveedores']
     })
     this.getData()
   }

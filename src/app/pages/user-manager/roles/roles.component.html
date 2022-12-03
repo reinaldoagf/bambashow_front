@@ -38,12 +38,12 @@
                                     <a class="table-action table-action-delete" ngbTooltip="Editar del rol"
                                         placement="top" href="javascript:void(0)"
                                         [routerLink]="['/admin/user-manager/roles/form',item.id]">
-                                        <i class=" fas fa-edit"> </i>
+                                        <i class="fa fa-edit"> </i>
                                     </a>
                                     <ng-container *ngIf="!item.root">
                                         <a class="table-action table-action-delete" ngbTooltip="Eliminar rol"
                                             placement="top" href="javascript:void(0)" (click)="confirmDeleted(item)">
-                                            <i class=" fas fa-trash"> </i>
+                                            <i class="fa fa-trash"> </i>
                                         </a>
                                     </ng-container>
                                 </td>

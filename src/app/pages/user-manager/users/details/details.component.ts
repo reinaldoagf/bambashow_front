@@ -27,7 +27,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.adminNavbarService.changePage({
       path: '/admin/user-manager/users/details/:id',
-      breadcumbs: ['Gestor de usuario', 'Usuarios', 'Detalles']
+      breadcumbs: ['Gestión de usuario', 'Usuarios', 'Detalles']
     })
     this.activeRoute.params.subscribe(routeParams => {
       if(routeParams.id){

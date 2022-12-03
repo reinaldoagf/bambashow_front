@@ -46,7 +46,7 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.adminNavbarService.changePage({
       path: '/admin/supplier-manager/orders',
-      breadcumbs: ['Gestor de proveedores', 'Pedidos']
+      breadcumbs: ['Gestión de proveedores', 'Pedidos']
     })
     this.getData()
   }

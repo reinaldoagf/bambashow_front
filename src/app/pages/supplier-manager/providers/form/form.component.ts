@@ -28,7 +28,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.adminNavbarService.changePage({
       path:'/admin/user-manager/providers/form/:id',
-      breadcumbs: ['Gestor de usuario', 'Proveedores', 'Formulario']
+      breadcumbs: ['Gestión de usuario', 'Proveedores', 'Formulario']
     })
     this.activeRoute.params.subscribe(routeParams => {
       if(routeParams.id){

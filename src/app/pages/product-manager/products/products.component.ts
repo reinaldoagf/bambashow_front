@@ -59,7 +59,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.adminNavbarService.changePage({
       path: '/admin/product-manager/products',
-      breadcumbs: ['Gestor de productos', 'Productos']
+      breadcumbs: ['Gestión de productos', 'Productos']
     })
     this.getData()
   }

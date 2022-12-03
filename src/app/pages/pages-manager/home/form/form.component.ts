@@ -7,6 +7,7 @@ import { RestService } from 'src/app/core/services/rest.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { HomeSection } from 'src/app/core/models/home-section.model';
 import { ListItem } from 'src/app/core/models/list-item.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form',
@@ -44,7 +45,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.adminNavbarService.changePage({
       path: '/admin/pages-manager/home/form/:id',
-      breadcumbs: ['Gestor de páginas', 'Inicio', 'Formulario']
+      breadcumbs: ['Gestión de páginas', 'Inicio', 'Formulario']
     })
     this.activeRoute.params.subscribe(routeParams => {
       if (routeParams.id) {
@@ -91,6 +92,36 @@ export class FormComponent implements OnInit {
   }
   editItem(item) {
     this.listItem = Object.assign({}, item);
+  }
+  confirmDeleted(item:any) {
+    if (item) {
+      Swal.fire({
+        title: 'Confirmar operación',
+        text: `¿Desea eliminar "${item.text}"?`,
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'No, Cancelar'
+      }).then(async (result) => {
+        if (result.value) {
+          try {
+            this.spinner.show();
+            const response: any = await this.restService.delete(`/home/sections/list-item/delete/${item.id}`);
+            this.spinner.hide();
+            if (response !== undefined && response.data) {
+              this.section.list_items = this.section.list_items.filter(( element: any ) => {
+                if (element.id !== item.id) return element
+              })
+              this.notificationService.showSuccess('Operación realiza exitosamente', response.message)
+            }
+          } catch (error) {
+            this.spinner.hide();
+            if (error.error)
+              this.notificationService.showError('Error', error.error)
+            console.log('error:', error)
+          }
+        }
+      })
+    }
   }
   /*<<<<<<<<<<<<<<<<<<<<<<<MANEJO DE IMAGEN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
   async fileProgress(fileInput: any) {

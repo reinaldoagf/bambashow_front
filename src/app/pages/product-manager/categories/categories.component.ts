@@ -40,7 +40,7 @@ export class CategoriesComponent implements OnInit {
    ngOnInit(): void {
      this.adminNavbarService.changePage({
        path: '/admin/product-manager/categories',
-       breadcumbs: ['Gestor de productos', 'Categorías']
+       breadcumbs: ['Gestión de productos', 'Categorías']
      })
      this.getData()
    }

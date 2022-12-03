@@ -48,12 +48,12 @@
                 <td class=" budget">
                   <a class="table-action table-action-delete" ngbTooltip="Detalles del usuario" placement="top"
                     href="javascript:void(0)" [routerLink]="['/admin/user-manager/users/details',item.id]">
-                    <i class=" fas fa-eye"> </i>
+                    <i class="fa fa-eye"> </i>
                   </a>
                   <ng-container *ngIf="!item.root">
                     <a class="table-action table-action-delete" ngbTooltip="Eliminar usuario" placement="top"
                       href="javascript:void(0)" (click)="confirmDeleted(item)">
-                      <i class=" fas fa-trash"> </i>
+                      <i class="fa fa-trash"> </i>
                     </a>
                   </ng-container>
                 </td>
