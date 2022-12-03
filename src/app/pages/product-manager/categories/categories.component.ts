@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ProductCategory } from 'src/app/core/models/product-category.model';
 import { AdminNavbarService } from 'src/app/core/services/admin-navbar.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { RestService } from 'src/app/core/services/rest.service';
+import { ProductCategory } from 'src/app/core/models/product-category.model';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-categories',
@@ -53,8 +53,7 @@ export class CategoriesComponent implements OnInit {
          this.restService.get(`/categories`),
        ]);
        this.spinner.hide();
-       this.categories = response1.data ? response1.data : [];
- 
+       this.categories = response1.data ? response1.data : []; 
      } catch (error) {
        this.spinner.hide();
        console.log(error);

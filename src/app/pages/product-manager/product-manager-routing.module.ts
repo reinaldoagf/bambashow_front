@@ -6,6 +6,7 @@ import { FormComponent as RawMaterialFormComponent } from './raw-material/form/f
 import { CategoriesComponent as ProductCategoriesComponent } from './categories/categories.component';
 import { ProductsComponent } from './products/products.component';
 import { FormComponent as ProductFormComponent } from './products/form/form.component';
+import { OrdersComponent } from './orders/orders.component';
 
 const routes: Routes = [{
   path: "raw-material",
@@ -28,6 +29,9 @@ const routes: Routes = [{
 },{
   path: "products/form/:id",
   component: ProductFormComponent,
+},{
+  path: "orders",
+  component: OrdersComponent,
 }];
 
 @NgModule({

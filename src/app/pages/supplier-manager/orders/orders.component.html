@@ -38,7 +38,7 @@
                         <tbody class=" list">
                             <tr *ngFor="let item of ( paginateOrders  | genericFilter: searchTable ) ;index as i">
                                 <td class="budget">
-                                    <ng-container *ngIf="item.pdf">
+                                    <ng-container *ngIf="item.pdf; else elseBlock">
                                         <a 
                                             class="table-action table-action-delete" 
                                             ngbTooltip="Ver solicitud"
@@ -48,6 +48,9 @@
                                             <i class="fa fa-file"> </i>
                                         </a>                                    
                                     </ng-container>
+                                    <ng-template #elseBlock>
+                                        Sin PDF adjunto
+                                    </ng-template>
                                 </td>
                                 <td class="budget">{{item.message}}</td>
                                 <td class="budget">

@@ -50,7 +50,7 @@ export class ProductsComponent implements OnInit {
     private restService: RestService,
     private adminNavbarService: AdminNavbarService,
     private notificationService: NotificationService,
-    public modalService: NgbModal) { }
+    private modalService: NgbModal) { }
   get paginateProducts() {
     const startItem = this.paginations.startItem ? this.paginations.startItem : 0;
     const endItem = this.paginations.endItem ? this.paginations.endItem : this.itemsPerPage;
@@ -81,10 +81,6 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  /* carga de valores por defecto */
-  setDefaultValues() {
-    this.product = new Product();
-  }
   confirmDeleted(item: any) {
     if (item) {
       Swal.fire({
@@ -121,6 +117,10 @@ export class ProductsComponent implements OnInit {
     this.paginations.endItem = event * this.itemsPerPage
   }
   /* paginacion */
+  /* carga de valores por defecto */
+  setDefaultValues() {
+    this.product = new Product();
+  }
   openGallery(item: Product, content: any) {
     this.setDefaultValues();
     this.product = item;
@@ -135,10 +135,6 @@ export class ProductsComponent implements OnInit {
     this.open(content)
   }
   /*abre modal*/
-  /* open(content: any) {
-    this.modalRef = this.modalService.open(content, { size: 'lg' });
-  }
-   */
   open(content: any) {
     this.modalService.open(content, { windowClass: 'modal-danger', centered: true }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

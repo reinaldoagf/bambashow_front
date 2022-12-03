@@ -7,6 +7,7 @@ import { FormComponent as RawMaterialFormComponent } from './raw-material/form/f
 import { CategoriesComponent as ProductCategoriesComponent } from './categories/categories.component';
 import { ProductsComponent } from './products/products.component';
 import { FormComponent as ProductFormComponent } from './products/form/form.component';
+import { OrdersComponent } from './orders/orders.component';
 
 import { SharedModule } from "../../shared/shared.module";
 
@@ -16,7 +17,8 @@ import { SharedModule } from "../../shared/shared.module";
     RawMaterialFormComponent,
     ProductCategoriesComponent,
     ProductsComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,
