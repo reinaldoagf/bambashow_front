@@ -41,6 +41,9 @@ const routes: Routes = [
     },{
       path: "pages-manager",
       loadChildren: () => import('./pages/pages-manager/pages-manager.module').then(x => x.PagesManagerModule),
+    },{
+      path: "settings",
+      loadChildren: () => import('./pages/settings/settings.module').then(x => x.SettingsModule),
     },
   ]
   },

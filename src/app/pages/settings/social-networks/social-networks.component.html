@@ -1,0 +1,73 @@
+<div class=" header bg-danger py-4">
+    <div class=" container-fluid">
+        <div class=" header-body">
+            <div class=" row">
+                <ng-container *ngFor="let socialNetwork of socialNetworks;index as i;">
+                    <div class=" col-xl-4 col-md-6">
+                        <div class=" card card-stats">
+                            <div class=" card-body">
+                                <div class=" row">
+                                    <div class=" col">
+                                        <h5 class=" card-title text-uppercase text-muted mb-0">
+                                            {{socialNetwork.name}}
+                                        </h5>
+
+                                        <span class=" h2 font-weight-bold mb-0"> {{socialNetwork.tooltip}} </span>
+                                    </div>
+
+                                    <div class=" col-auto">
+                                        <div class=" icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                                            <i class="fa fa-{{socialNetwork.icon}}"> </i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class=" mt-3 mb-0 text-sm">
+                                    <span class=" text-success mr-2">
+                                        <i class=" fa fa-link"> </i> url:
+                                    </span>
+
+                                    <span class=" text-nowrap"> 
+                                        <a href="{{socialNetwork.url}}">{{socialNetwork.url}}</a>
+                                    </span>
+                                </p>
+                            </div><div class="card-footer justify-content-end"><button (click)="edit(socialNetwork)" class="btn btn-success"> 
+                                <i class="fa fa-edit"></i>    
+                            </button></div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+<div class=" container-fluid mt--15">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class=" card mb-4">
+                <div class=" card-header">
+                    <h3 class=" mb-0">Formulario</h3>
+                </div>
+                <div class=" card-body">
+                    <div class=" form-group">
+                        <label class=" form-control-label" for="tooltip">
+                            Tooltip
+                        </label>
+                        <input class=" form-control" id="tooltip" placeholder="Tooltip"
+                            type="text" [(ngModel)]="socialNetwork.tooltip" />
+                    </div>
+                    <div class=" form-group">
+                        <label class=" form-control-label" for="url">
+                            Url
+                        </label>
+                        <input class=" form-control" id="url" placeholder="Url"
+                            type="text" [(ngModel)]="socialNetwork.url" />
+                    </div>
+                </div>
+                <div class="card-footer justify-content-end">
+                    <button type="submit" class="btn btn-primary" (click)="save()"> Actualizar </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

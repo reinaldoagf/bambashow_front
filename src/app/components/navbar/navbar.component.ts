@@ -68,7 +68,7 @@ export class NavbarComponent implements OnInit {
         const [
           response1,
         ]: any[] = await Promise.all([
-          this.restService.get(`/settings/content`),
+          this.restService.get(`/settings/social-networks`),
         ]);
         this.spinner.hide();
         this.social_networks = response1.data?.social_networks ? response1.data.social_networks : [];
