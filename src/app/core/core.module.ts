@@ -6,6 +6,7 @@ import { AdminNavbarService } from './services/admin-navbar.service';
 import { GuardService } from './services/guard.service';
 import { NotificationService } from './services/notification.service';
 import { RestService } from './services/rest.service';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [],
@@ -15,6 +16,7 @@ import { RestService } from './services/rest.service';
     GuardService,
     NotificationService,
     RestService,
+    CartService,
   ]
 })
 export class CoreModule { }

@@ -1,0 +1,44 @@
+<ng-container *ngIf="isLoggedIn ">
+    <div class=" fixed-plugin">
+        <ng-container *ngIf="products.length">
+            <span class="quantity-notification">{{products.length}}</span>
+        </ng-container>
+        <div class=" show-dropdown" ngbDropdown>
+            <a (click)="showDropdown = !showDropdown">
+                <i class="fa fa-shopping-cart fa-2x"></i>
+            </a>
+            <!-- <a class="text-white" [routerLink]="'/shopping-cart'">VER MÁS</a> -->
+            <ng-container *ngIf="showDropdown && products.length">
+                <div class="dropdown-content">
+                    <div class=" dropdown-header noti-title">
+                        <h6 class="text-overflow m-0">Carrito de compra</h6>
+                    </div>
+                    <ng-container *ngFor="let item of products;index as i;">
+                        <div style="color: black;" class="dropdown-item">
+                            <div class="row align-items-center">
+                                <ng-container *ngIf="item.images.length">
+                                    <div class="col-auto">
+                                        <img alt="Image {{i}}" src="{{item.images[0].url}}">
+                                    </div>
+                                </ng-container>
+                                <div class="col ml--2">
+                                    <h4 class="mb-0">{{item.name}}</h4>
+                                    <span class="text-success"> ● </span><small> {{(item.price | currency:'USD')}} </small>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="button" class="btn btn-sm btn-danger" (click)="removeItemToCart(item)">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <div class=" dropdown-footer noti-title">
+                        <a class="" [routerLink]="'/shopping-cart'">VER MÁS</a> 
+                    </div>
+                </div>
+            </ng-container>
+           
+        </div>
+    </div>
+</ng-container>

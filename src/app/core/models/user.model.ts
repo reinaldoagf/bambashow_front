@@ -9,6 +9,7 @@ export class User {
     photo:string | File;
     address: string;
     birthday: string;
+    cart:any[];
     constructor(){
         this.name=null;
         this.email=null;
@@ -19,5 +20,6 @@ export class User {
         this.photo=null;
         this.address=null;
         this.birthday=null;
+        this.cart=[];
     }
 }

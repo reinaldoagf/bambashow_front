@@ -15,6 +15,8 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { FooterComponent } from "./footer/footer.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { FixedPluginComponent } from './fixed-plugin/fixed-plugin.component';
 
 @NgModule({
   declarations: [ 
@@ -22,6 +24,8 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
     AdminNavbarComponent,
     SidebarComponent,
     FooterComponent,
+    ProductCardComponent,
+    FixedPluginComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +39,8 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
     AdminNavbarComponent,
     SidebarComponent,
     FooterComponent,
+    ProductCardComponent,
+    FixedPluginComponent,
   ],
   providers: [{
     provide: PERFECT_SCROLLBAR_CONFIG,
