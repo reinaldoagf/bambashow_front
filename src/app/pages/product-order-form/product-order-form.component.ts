@@ -54,7 +54,6 @@ export class ProductOrderFormComponent implements OnInit {
   nextStep(_class:string): void {
     this.step++;
     this.stepContainerClass = _class;
-    console.log(this.orderProduct)
   } 
   /*<<<<<<<<<<<<<<<<<<<<<<<MANEJO DE IMAGEN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
   async fileProgress(fileInput: any,payment:any) {

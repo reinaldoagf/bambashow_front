@@ -57,7 +57,6 @@ export class DetailsComponent implements OnInit {
       this.spinner.hide();
       this.user = response1.data ? response1.data : this.user;
       this.roles = response2.data ? response2.data : [];
-      console.log(this.user)
 
     } catch (error) {
       this.spinner.hide();

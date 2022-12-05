@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.adminNavbarService.changePage({
       path: '/admin/dashboard',
-      breadcumbs: ['Dashboard', '']
+      breadcumbs: ['Dashboard']
     })
     this.getUser()
   }
@@ -39,7 +39,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   /*obtiene usuario en sesión desde localStorage*/
   getUser() {
     this.user = JSON.parse(localStorage.getItem("user"));
-    console.log(this.user)
   }
   initCharts() {
     this.datasets = [

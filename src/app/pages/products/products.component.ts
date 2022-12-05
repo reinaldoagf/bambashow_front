@@ -30,7 +30,6 @@ export class ProductsComponent implements OnInit {
         this.restService.get(`/products`),
       ]);
       this.spinner.hide();
-      console.log(response1)
       this.products = response1.data ? response1.data : [];
     } catch (error) {
       this.spinner.hide();

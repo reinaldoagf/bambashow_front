@@ -66,7 +66,6 @@ export class FormComponent implements OnInit {
       breadcumbs: ['Gestión de proveedores', 'Pedidos', 'Formulario']
     })
     this.getData()
-    console.log(this.rawMaterialOptions)
   }
   async getData() {
     try {
@@ -79,7 +78,6 @@ export class FormComponent implements OnInit {
         this.restService.get(`/raw-material`),
       ]);
       this.spinner.hide();
-      console.log(response2)
       this.providers = response1.data ? response1.data : [];
       this.rawMaterial = response2.data ? response2.data : [];
     } catch (error) {
@@ -122,8 +120,6 @@ export class FormComponent implements OnInit {
       quantity: null,
       square_meter: null
     }]
-    console.log(this.rawMaterialOptions)
-    console.log(this.rawMaterialDropdownSettings)
   }
   removeItem(item){
     this.order.items = this.order.items.filter(e => this.order.items.indexOf(e) !== this.order.items.indexOf(item))

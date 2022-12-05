@@ -59,7 +59,6 @@ export class AdminNavbarComponent implements OnInit {
     this.getUser()
     this.adminNavbarService.change.subscribe(result=>{
       this.breadcrumbItems = result.breadcumbs ? result.breadcumbs : [];
-      console.log(this.breadcrumbItems)
     });
   }
   /*obtiene usuario en sesión desde localStorage*/

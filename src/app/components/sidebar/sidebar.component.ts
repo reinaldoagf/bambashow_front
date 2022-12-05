@@ -120,7 +120,6 @@ export class SidebarComponent implements OnInit {
       this.menuItems = ROUTES.filter(menuItem =>{
         if(user.rol ){
           if(user.rol.name == "client"){
-            console.log('menuItem:',menuItem)
             switch (menuItem.path) {
               case '/admin/dashboard':
                 return menuItem

@@ -3,14 +3,15 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminNavbarService } from 'src/app/core/services/admin-navbar.service';
 import { RestService } from 'src/app/core/services/rest.service';
+import { User } from "src/app/core/models/user.model";
 import { OrderProduct } from 'src/app/core/models/order-product.model';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+  selector: 'app-my-orders',
+  templateUrl: './my-orders.component.html',
+  styleUrls: ['./my-orders.component.scss']
 })
-export class OrdersComponent implements OnInit {
+export class MyOrdersComponent implements OnInit {
   /*paginacion*/
   currentPage = 1;
   page = 1;
@@ -21,41 +22,41 @@ export class OrdersComponent implements OnInit {
     endItem: null
   }
   /*paginacion*/
+  user: User = new User();
   order: OrderProduct = new OrderProduct();
   orders: OrderProduct[] = [];
   headerElements: any[] = [
-    'usuario',
     'productos',
     'status',
   ];
   searchTable: string = '';
   closeResult: string;
-  dropdownSettings: any = {
-    singleSelection: true,
-    allowSearchFilter: true,
-    closeDropDownOnSelection: true,
-    idField:'name',
-    textField:'name'
+
+  constructor(
+    private spinner: NgxSpinnerService,
+    private restService: RestService,
+    private adminNavbarService: AdminNavbarService,
+    private modalService: NgbModal) { }
+  get getMyOrders() {
+      return this.orders.filter(e=> e.id_user == this.user.id);
   }
   get paginateOrders() {
     const startItem = this.paginations.startItem ? this.paginations.startItem : 0;
     const endItem = this.paginations.endItem ? this.paginations.endItem : this.itemsPerPage;
-    return !this.searchTable.length ? this.orders.slice(startItem, endItem) : this.orders;
+    return !this.searchTable.length ? this.getMyOrders.slice(startItem, endItem) : this.getMyOrders;
   }
-  constructor(
-    private spinner: NgxSpinnerService,
-    private adminNavbarService: AdminNavbarService,
-    private restService: RestService,
-    private modalService: NgbModal) { }
-
-  ngOnInit(): void {
+  ngOnInit() {
     this.adminNavbarService.changePage({
-      path: '/admin/product-manager/orders',
-      breadcumbs: ['Gestión de productos', 'Pedidos']
+      path: '/admin/my-orders',
+      breadcumbs: ['Mis pedidos']
     })
+    this.getUser()
+  }
+  /*obtiene usuario en sesión desde localStorage*/
+  getUser() {
+    this.user = JSON.parse(localStorage.getItem("user"));
     this.getData()
   }
-
   async getData() {
     try {
       this.spinner.show();
@@ -65,10 +66,8 @@ export class OrdersComponent implements OnInit {
         this.restService.get(`/products/orders`),
       ]);
       this.spinner.hide();
+      console.log(response1)
       this.orders = response1.data ? response1.data : [];
-      this.orders = this.orders.map(e => {
-        return {...e,status:[e.status]}
-      });
     } catch (error) {
       this.spinner.hide();
       console.log(error);
@@ -80,7 +79,6 @@ export class OrdersComponent implements OnInit {
     this.paginations.endItem = event * this.itemsPerPage
   }
   /* paginacion */
-  /* carga de valores por defecto */
   setDefaultValues() {
     this.order = new OrderProduct();
   }
