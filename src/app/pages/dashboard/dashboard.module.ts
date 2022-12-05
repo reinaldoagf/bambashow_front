@@ -10,18 +10,17 @@ import { SectionsModule } from '../../sections/sections.module';
 import { ComponentsModule } from '../../components/components.module';
 import { CoreModule } from '../../core/core.module';
 
-import { DashboardRoutes } from "./dashboard-routing.module";
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        // BrowserModule,
         RouterModule,
         SectionsModule,
         ComponentsModule,
         SharedModule,
         CoreModule,
-        RouterModule.forChild(DashboardRoutes)
+        DashboardRoutingModule
     ],
     declarations: [ DashboardComponent ],
     exports:[ DashboardComponent ],

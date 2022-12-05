@@ -24,7 +24,7 @@ export class BankDataComponent implements OnInit {
   ngOnInit(): void {
     this.adminNavbarService.changePage({
       path: '/admin/settings/social-networks',
-      breadcumbs: ['Configuración', 'cUENTAS BANCARIAS']
+      breadcumbs: ['Configuración', 'Cuentas bancarias']
     })
     this.getData()
   }

@@ -36,6 +36,11 @@ export const ROUTES: RouteInfo[] = [
     title: "Dashboard",
     type: "link",
     icontype: "ni-chart-bar-32 text-primary",
+  },{
+    path: "/admin/my-orders",
+    title: "Mis pedidos",
+    type: "link",
+    icontype: "ni-bullet-list-67 text-warning",
   }, {
     path: "/admin/pages-manager",
     title: "Gestión de páginas",
@@ -112,12 +117,28 @@ export class SidebarComponent implements OnInit {
   getUser() {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
-      /* this.menuItems = ROUTES.filter(menuItem =>{
-        if(user.rol && user.rol.menu_elements_rol.find(e => e.menu_element.path == menuItem.path)){
-          return menuItem
+      this.menuItems = ROUTES.filter(menuItem =>{
+        if(user.rol ){
+          if(user.rol.name == "client"){
+            console.log('menuItem:',menuItem)
+            switch (menuItem.path) {
+              case '/admin/dashboard':
+                return menuItem
+                break;            
+              case '/admin/my-orders':
+                  return menuItem
+                  break;
+              default:
+                break;
+            }
+            // return menuItem
+          }
+          if(user.rol.name == "admin"){
+            return menuItem
+          }
         }
-      }); */
-      this.menuItems = ROUTES;
+      });
+      // this.menuItems = ROUTES;
       this.router.events.subscribe(event => {
         this.isCollapsed = true;
       });

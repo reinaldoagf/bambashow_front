@@ -15,13 +15,13 @@ import { User } from "src/app/core/models/user.model";
   styleUrls: ['./admin-navbar.component.css']
 })
 export class AdminNavbarComponent implements OnInit {
-  public breadcrumbItems:string[] = [];
-  public focus;
-  public listTitles: any[];
-  public location: Location;
-  public sidenavOpen: boolean = true;
+  breadcrumbItems:string[] = [];
+  focus;
+  listTitles: any[];
+  location: Location;
+  sidenavOpen: boolean = true;
 
-  public user:User=null;
+  user:User=null;
   constructor(
     location: Location,
     private element: ElementRef,
@@ -59,6 +59,7 @@ export class AdminNavbarComponent implements OnInit {
     this.getUser()
     this.adminNavbarService.change.subscribe(result=>{
       this.breadcrumbItems = result.breadcumbs ? result.breadcumbs : [];
+      console.log(this.breadcrumbItems)
     });
   }
   /*obtiene usuario en sesión desde localStorage*/
