@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Chart } from 'chart.js';
+import { RestService } from 'src/app/core/services/rest.service';
 
 // core components
 import {
@@ -10,6 +12,8 @@ import {
 } from '../../variables/charts';
 import { AdminNavbarService } from '../../core/services/admin-navbar.service';
 import { User } from "src/app/core/models/user.model";
+import { Provider } from 'src/app/core/models/provider.model';
+import { OrderProduct } from 'src/app/core/models/order-product.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,8 +27,14 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   clicked: boolean = true;
   clicked1: boolean = false;
   user: User = new User();
+  providers: Provider[] = [];
+  users: User[] = [];
+  orders: OrderProduct[] = [];
 
-  constructor(public adminNavbarService: AdminNavbarService) { }
+  constructor(
+    private spinner: NgxSpinnerService,
+    private restService: RestService,
+    public adminNavbarService: AdminNavbarService) { }
 
   ngOnInit() {
     this.adminNavbarService.changePage({
@@ -32,9 +42,31 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       breadcumbs: ['Dashboard']
     })
     this.getUser()
+    this.getData()
   }
   ngAfterViewInit() {
     this.initCharts();
+  }
+  async getData() {
+    try {
+      this.spinner.show();
+      const [
+        response1,
+        response2,
+        response3,
+      ]: any[] = await Promise.all([
+        this.restService.get(`/users`),
+        this.restService.get(`/providers`),
+        this.restService.get(`/products/orders`),
+      ]);
+      this.spinner.hide();
+      this.users = response1.data ? response1.data : [];
+      this.providers = response2.data ? response2.data : [];
+      this.orders = response2.data ? response2.data : [];
+    } catch (error) {
+      this.spinner.hide();
+      console.log(error);
+    }
   }
   /*obtiene usuario en sesión desde localStorage*/
   getUser() {
