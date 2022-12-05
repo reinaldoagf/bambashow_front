@@ -1,0 +1,164 @@
+<section class="section section-lg">
+  <div class="container">
+    <div class="step-form">
+      <div [class]="stepContainerClass">
+        <div class="steps">
+          <div class="step step-one">
+            <div class="liner"></div>
+            <span>Pedido</span>
+          </div>
+          <div class="step step-two">
+            <div class="liner"></div>
+            <span>Pago</span>
+          </div>
+          <div class="step step-three">
+            <div class="liner"></div>
+            <span>Formalización del pedido</span>
+          </div>
+        </div>
+        <div class="line">
+          <div class="dot-move"></div>
+          <div class="dot zero"></div>
+          <div class="dot center"></div>
+          <div class="dot full"></div>
+        </div>
+        <div class="slider-ctr">
+          <div class="slider">
+            <div class="slider-form slider-one" *ngIf="step == 0">
+              <h2>
+                Detalles del pedido
+              </h2>
+
+              <div class=" table-responsive">
+                <table class=" table align-items-center table-flush">
+                  <thead class=" thead-light">
+                    <tr>
+                      <th class="text-uppercase sort" data-sort="project" scope="col" *ngFor="let element of [
+                                  'Producto',
+                                  'Precio',
+                                  'Talla',
+                                  'Cantidad'
+                                ]">
+                        {{element}}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class=" list">
+                    <tr *ngFor="let item of orderProduct.details  ;index as i">
+                      <td class="budget">{{item.product?.name ? item.product.name : 'Sin producto'}}</td>
+                      <td class="budget">{{item.product?.price ? (item.product.price | currency:'USD') : 'Sin producto'}}</td>
+                      <td class="budget">
+                        <!-- (onSelect)="onItemSelect($event)" -->
+                        <ng-multiselect-dropdown name="size" [placeholder]="'Tallas'" [data]="['SS','S','M','L','XL']"
+                          [(ngModel)]="item.size" [settings]="dropdownSettings" [disabled]="false">
+                        </ng-multiselect-dropdown>
+                      </td>
+                      <td class="budget">
+                        <input class=" form-control" id="quantity" placeholder="Cantidad" type="number" min="1"
+                          [(ngModel)]="item.quantity" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="d-flex justify-content-end w-100">
+                <button class="first next"
+                  (click)="nextStep('slider-center slider-two-active steps-container')">Siguiente</button>
+              </div>
+            </div>
+            <div class="slider-form slider-two" *ngIf="step == 1">
+              <h2>
+                Pago del pedido
+              </h2>
+              <ng-container *ngFor="let payment of orderProduct.payments">
+                <div class="container">                  
+                  <div class="row">
+                    <div class="col">
+                      <div class=" form-group">
+                        <label class=" form-control-label" for="title_side">
+                          Código de referencia
+                        </label>
+                        <input class=" form-control" id="title_side" placeholder="Código de referencia" type="text"
+                          [(ngModel)]="payment.code" />
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class=" form-group">
+                        <label class=" form-control-label" for="amount">
+                          Monto
+                        </label>
+                        <input class=" form-control" id="amount" placeholder="Monto" type="number"
+                          [(ngModel)]="payment.amount" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <label class="form-control-label">Descripción</label>
+                        <textarea class=" form-control" name="" id="" placeholder="Description"></textarea>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label class="form-control-label">Subir comprobante de pago</label>
+                        <div class="avatar-upload">
+                          <div class="avatar-edit">
+                            <input type="file" capture="environment" id="upload-image"
+                              (change)="fileProgress($event,payment)" />
+                            <label for="upload-image"></label>
+                          </div>
+                          <div class="avatar-preview">
+                            <img class="upload-img img-responsive img-circle" id="imagePreview"
+                              [src]="payment.image ? payment.image :'https://icons.iconarchive.com/icons/graphicloads/100-flat-2/256/arrow-upload-icon.png'"
+                              alt="Comprobante de pago">
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+              <div class="d-flex justify-content-end w-100">
+                <button class="second next"
+                  (click)="nextStep('full slider-three-active steps-container')">Siguiente</button>
+              </div>
+            </div>
+            <div class="slider-form slider-three" *ngIf="step == 2">
+              <ng-container *ngIf="user?.name">
+                <h2>Felicidades, <span class="yourname">{{user.name}}</span></h2>
+                <h3>Tu pedido fue realizado satisfactoriamente</h3>
+              </ng-container>
+
+              <!-- <div class="label-ctr">
+                <label class="radio">
+                  <input type="radio" value="happy" name="condition">
+                  <div class="emot happy">
+                    <div class="mouth sad"></div>
+                  </div>
+                </label>
+                <label class="radio">
+                  <input type="radio" value="happy" name="condition">
+                  <div class="emot happy">
+                    <div class="mouth smile"></div>
+                  </div>
+                </label>
+              </div> -->
+                
+              <div class="d-flex justify-content-end w-100">
+                  <a class="btn btn-success" ngbTooltip="Ir a inicio"
+                  placement="top" href="javascript:void(0)"
+                  [routerLink]="['/main/home']">
+                  Listo
+                  <i class=" fa fa-check"> </i>
+              </a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

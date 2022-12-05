@@ -11,7 +11,7 @@ import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component
 import { LoginComponent } from "./pages/login/login.component";
 import { SignupComponent } from "./pages/signup/signup.component";
 import { HomeComponent } from './pages/home/home.component';
-// import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ProductOrderFormComponent } from './pages/product-order-form/product-order-form.component';
 
 /* 
 import { LoginComponent } from './pages/login/login.component';
@@ -68,6 +68,10 @@ const routes: Routes = [
       {
         path: "home",
         component: HomeComponent,
+      },
+      {
+        path: "product-order-form",
+        component: ProductOrderFormComponent,
       },
     ]
   },
