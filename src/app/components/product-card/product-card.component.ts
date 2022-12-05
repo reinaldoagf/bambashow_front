@@ -7,13 +7,13 @@ import { Product } from 'src/app/core/models/product.model';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent implements OnInit {
-  @Input () card: any;
+  @Input () product: Product;
   constructor(
     private cartService: CartService
   ) { }
 
   ngOnInit(): void {
-    console.log(this.card)
+    console.log(this.product)
   }
   addItemToCart(item:Product){
     this.cartService.addItem(item);

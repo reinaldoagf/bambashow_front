@@ -12,6 +12,7 @@ import { LoginComponent } from "./pages/login/login.component";
 import { SignupComponent } from "./pages/signup/signup.component";
 import { HomeComponent } from './pages/home/home.component';
 import { ProductOrderFormComponent } from './pages/product-order-form/product-order-form.component';
+import { ProductsComponent } from './pages/products/products.component';
 
 /* 
 import { LoginComponent } from './pages/login/login.component';
@@ -72,6 +73,10 @@ const routes: Routes = [
       {
         path: "product-order-form",
         component: ProductOrderFormComponent,
+      },
+      {
+        path: "products",
+        component: ProductsComponent,
       },
     ]
   },
