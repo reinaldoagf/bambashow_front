@@ -73,7 +73,7 @@ export class ProductsComponent implements OnInit {
       ]);
       this.spinner.hide();
       this.products = response1.data ? response1.data : [];
-
+console.log("products:",this.products)
     } catch (error) {
       this.spinner.hide();
       console.log(error);

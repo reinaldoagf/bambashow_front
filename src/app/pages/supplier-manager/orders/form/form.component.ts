@@ -87,8 +87,6 @@ export class FormComponent implements OnInit {
   }
 
   async save() {
-    console.log(this.formData)
-    console.log(this.order)
     try {
       if(this.order.id){
         this.spinner.show();
